@@ -142,7 +142,7 @@ EMAIL_HOST_PASSWORD=your-app-password
 
 The application includes comprehensive security configurations:
 
-- HSTS enforcement
+- HTTPS enforcement
 - Secure cookies
 - XSS protection
 - CSRF protection
