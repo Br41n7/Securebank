@@ -1,0 +1,246 @@
+{% extends 'base.html' %}
+
+{% block title %}SecureBank - Secure Online Banking, Crypto & Digital Payments{% endblock %}
+
+{% block extra_css %}
+<style>
+.hero-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 100px 0;
+}
+.feature-card {
+    transition: transform 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+.stats-section {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+}
+.stat-item {
+    text-align: center;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold mb-4">Welcome to SecureBank</h1>
+                <p class="lead mb-4">Your trusted partner for secure online banking, cryptocurrency trading, and digital payments. Experience banking reimagined with cutting-edge security and innovative features.</p>
+                <div class="d-flex gap-3">
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'dashboard' %}" class="btn btn-light btn-lg">Go to Dashboard</a>
+                    {% else %}
+                    <a href="{% url 'register' %}" class="btn btn-light btn-lg">Get Started</a>
+                    <a href="{% url 'login' %}" class="btn btn-outline-light btn-lg">Login</a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="text-center">
+                    <i class="fas fa-shield-alt" style="font-size: 12rem; opacity: 0.3;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold">Why Choose SecureBank?</h2>
+            <p class="lead text-muted">Comprehensive financial services with enterprise-grade security</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="card feature-card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon text-primary">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h4 class="card-title">Secure Banking</h4>
+                        <p class="card-text">Bank with confidence using our military-grade encryption and multi-factor authentication.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card feature-card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon text-warning">
+                            <i class="fab fa-bitcoin"></i>
+                        </div>
+                        <h4 class="card-title">Crypto Trading</h4>
+                        <p class="card-text">Buy, sell, and store Bitcoin, Ethereum, and other cryptocurrencies securely.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card feature-card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon text-success">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <h4 class="card-title">Gift Cards</h4>
+                        <p class="card-text">Trade gift cards from major retailers at competitive rates with instant verification.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card feature-card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon text-info">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4 class="card-title">Airtime Top-up</h4>
+                        <p class="card-text">Recharge airtime for all major networks instantly with exclusive discounts.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card feature-card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon text-danger">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h4 class="card-title">Bill Payments</h4>
+                        <p class="card-text">Pay electricity, water, internet, and TV bills conveniently from one platform.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card feature-card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon text-secondary">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4 class="card-title">School Fees</h4>
+                        <p class="card-text">Pay school fees for thousands of educational institutions across the country.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="stat-item">
+                    <h3 class="display-4 fw-bold text-primary">500K+</h3>
+                    <p class="text-muted">Active Users</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-item">
+                    <h3 class="display-4 fw-bold text-success">$50M+</h3>
+                    <p class="text-muted">Transactions Processed</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-item">
+                    <h3 class="display-4 fw-bold text-warning">99.9%</h3>
+                    <p class="text-muted">Uptime</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-item">
+                    <h3 class="display-4 fw-bold text-info">24/7</h3>
+                    <p class="text-muted">Customer Support</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Security Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h2 class="display-5 fw-bold mb-4">Bank-Grade Security</h2>
+                <p class="lead mb-4">Your security is our top priority. We implement industry-leading security measures to protect your funds and personal information.</p>
+                
+                <div class="row g-3">
+                    <div class="col-6">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-check-circle text-success me-3 fa-2x"></i>
+                            <div>
+                                <h5 class="mb-1">256-bit Encryption</h5>
+                                <p class="text-muted mb-0">Military-grade data protection</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-check-circle text-success me-3 fa-2x"></i>
+                            <div>
+                                <h5 class="mb-1">Two-Factor Auth</h5>
+                                <p class="text-muted mb-0">Extra layer of security</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-check-circle text-success me-3 fa-2x"></i>
+                            <div>
+                                <h5 class="mb-1">Fraud Detection</h5>
+                                <p class="text-muted mb-0">AI-powered monitoring</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-check-circle text-success me-3 fa-2x"></i>
+                            <div>
+                                <h5 class="mb-1">Regulated</h5>
+                                <p class="text-muted mb-0">Fully licensed and insured</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="text-center">
+                    <i class="fas fa-shield-alt text-primary" style="font-size: 10rem;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-primary text-white">
+    <div class="container text-center">
+        <h2 class="display-5 fw-bold mb-4">Ready to Get Started?</h2>
+        <p class="lead mb-4">Join thousands of satisfied users who trust SecureBank for their financial needs.</p>
+        {% if user.is_authenticated %}
+        <a href="{% url 'dashboard' %}" class="btn btn-light btn-lg">Go to Dashboard</a>
+        {% else %}
+        <a href="{% url 'register' %}" class="btn btn-light btn-lg me-3">Create Account</a>
+        <a href="{% url 'login' %}" class="btn btn-outline-light btn-lg">Login</a>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>

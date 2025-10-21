@@ -1,0 +1,313 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard - SecureBank{% endblock %}
+
+{% block extra_css %}
+<style>
+.dashboard-card {
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+.dashboard-card:hover {
+    transform: translateY(-2px);
+}
+.balance-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+.quick-action {
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+.quick-action:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    color: inherit;
+    text-decoration: none;
+}
+.quick-action i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+.transaction-item {
+    border-left: 3px solid #007bff;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+}
+.transaction-item.credit {
+    border-left-color: #28a745;
+}
+.transaction-item.debit {
+    border-left-color: #dc3545;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid py-4">
+    <!-- Welcome Section -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <h2 class="mb-1">Welcome back, {{ user.first_name }}!</h2>
+            <p class="text-muted">Here's an overview of your account</p>
+        </div>
+    </div>
+
+    <!-- Balance Cards -->
+    <div class="row mb-4">
+        <div class="col-lg-4 mb-3">
+            <div class="card balance-card">
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 opacity-75">Total Balance</h6>
+                    <h3 class="card-title mb-0">₦{{ total_balance|default:"0.00" }}</h3>
+                    <small class="opacity-75">Across all accounts</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 mb-3">
+            <div class="card dashboard-card">
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted">Available Balance</h6>
+                    <h3 class="card-title mb-0 text-success">₦{{ available_balance|default:"0.00" }}</h3>
+                    <small class="text-muted">Ready to use</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 mb-3">
+            <div class="card dashboard-card">
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted">Crypto Portfolio</h6>
+                    <h3 class="card-title mb-0 text-warning">${{ crypto_value|default:"0.00" }}</h3>
+                    <small class="text-muted">Current value</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Quick Actions -->
+        <div class="col-lg-8 mb-4">
+            <div class="card dashboard-card">
+                <div class="card-header bg-white">
+                    <h5 class="card-title mb-0">Quick Actions</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-6 col-md-3">
+                            <a href="#" class="quick-action">
+                                <i class="fas fa-exchange-alt text-primary"></i>
+                                <h6>Transfer</h6>
+                            </a>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <a href="#" class="quick-action">
+                                <i class="fas fa-mobile-alt text-success"></i>
+                                <h6>Airtime</h6>
+                            </a>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <a href="#" class="quick-action">
+                                <i class="fas fa-bolt text-warning"></i>
+                                <h6>Pay Bills</h6>
+                            </a>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <a href="#" class="quick-action">
+                                <i class="fab fa-bitcoin text-info"></i>
+                                <h6>Crypto</h6>
+                            </a>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <a href="#" class="quick-action">
+                                <i class="fas fa-gift text-danger"></i>
+                                <h6>Gift Cards</h6>
+                            </a>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <a href="#" class="quick-action">
+                                <i class="fas fa-graduation-cap text-secondary"></i>
+                                <h6>School Fees</h6>
+                            </a>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <a href="#" class="quick-action">
+                                <i class="fas fa-plus-circle text-primary"></i>
+                                <h6>Add Money</h6>
+                            </a>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <a href="#" class="quick-action">
+                                <i class="fas fa-download text-success"></i>
+                                <h6>Withdraw</h6>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Account Summary -->
+        <div class="col-lg-4 mb-4">
+            <div class="card dashboard-card">
+                <div class="card-header bg-white">
+                    <h5 class="card-title mb-0">Account Summary</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Active Accounts</span>
+                        <span class="badge bg-primary">{{ active_accounts|default:0 }}</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Pending Transactions</span>
+                        <span class="badge bg-warning">{{ pending_transactions|default:0 }}</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>KYC Status</span>
+                        <span class="badge bg-{% if kyc_status == 'VERIFIED' %}success{% else %}warning{% endif %}">{{ kyc_status|default:"Not Verified" }}</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <span>2FA Status</span>
+                        <span class="badge bg-{% if two_factor_enabled %}success{% else %}secondary{% endif %}">{% if two_factor_enabled %}Enabled{% else %}Disabled{% endif %}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Recent Transactions -->
+        <div class="col-lg-8 mb-4">
+            <div class="card dashboard-card">
+                <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-0">Recent Transactions</h5>
+                    <a href="#" class="btn btn-sm btn-outline-primary">View All</a>
+                </div>
+                <div class="card-body">
+                    {% if recent_transactions %}
+                        {% for transaction in recent_transactions %}
+                        <div class="transaction-item {% if transaction.transaction_type == 'DEPOSIT' %}credit{% else %}debit{% endif %}">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="mb-1">{{ transaction.get_transaction_type_display }}</h6>
+                                    <small class="text-muted">{{ transaction.description|default:transaction.reference }}</small>
+                                </div>
+                                <div class="text-end">
+                                    <h6 class="mb-0 {% if transaction.transaction_type == 'DEPOSIT' %}text-success{% else %}text-danger{% endif %}">
+                                        {% if transaction.transaction_type == 'DEPOSIT' %}+{% else %}-{% endif %}₦{{ transaction.amount }}
+                                    </h6>
+                                    <small class="text-muted">{{ transaction.created_at|date:"M d, Y H:i" }}</small>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="text-center py-4">
+                            <i class="fas fa-exchange-alt fa-3x text-muted mb-3"></i>
+                            <p class="text-muted">No transactions yet</p>
+                            <a href="#" class="btn btn-primary">Make Your First Transaction</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Notifications & Alerts -->
+        <div class="col-lg-4 mb-4">
+            <div class="card dashboard-card">
+                <div class="card-header bg-white">
+                    <h5 class="card-title mb-0">Notifications</h5>
+                </div>
+                <div class="card-body">
+                    {% if notifications %}
+                        {% for notification in notifications %}
+                        <div class="alert alert-{{ notification.type|default:'info' }} alert-sm mb-2">
+                            <small>{{ notification.message }}</small>
+                            <div class="text-muted mt-1">
+                                <small>{{ notification.created_at|timesince }} ago</small>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="text-center py-4">
+                            <i class="fas fa-bell fa-2x text-muted mb-2"></i>
+                            <p class="text-muted">No new notifications</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Market Overview -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card dashboard-card">
+                <div class="card-header bg-white">
+                    <h5 class="card-title mb-0">Crypto Market Overview</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-3">
+                            <div class="text-center">
+                                <h6>Bitcoin</h6>
+                                <h5 class="text-warning">$45,234.56</h5>
+                                <small class="text-success">+2.34%</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="text-center">
+                                <h6>Ethereum</h6>
+                                <h5 class="text-primary">$3,456.78</h5>
+                                <small class="text-success">+1.23%</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="text-center">
+                                <h6>USDT</h6>
+                                <h5 class="text-info">$1.00</h5>
+                                <small class="text-muted">0.00%</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="text-center">
+                                <h6>USDC</h6>
+                                <h5 class="text-secondary">$1.00</h5>
+                                <small class="text-muted">0.00%</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Auto-refresh dashboard data every 30 seconds
+setInterval(function() {
+    // In a real implementation, this would fetch fresh data via AJAX
+    console.log('Refreshing dashboard data...');
+}, 30000);
+
+// Quick action handlers
+document.querySelectorAll('.quick-action').forEach(function(element) {
+    element.addEventListener('click', function(e) {
+        e.preventDefault();
+        const action = this.querySelector('h6').textContent;
+        console.log('Quick action clicked:', action);
+        // In a real implementation, this would navigate to the appropriate page
+    });
+});
+</script>
+{% endblock %}
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>

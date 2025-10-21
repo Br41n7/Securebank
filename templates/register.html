@@ -1,0 +1,364 @@
+{% extends 'base.html' %}
+
+{% block title %}Register - SecureBank{% endblock %}
+
+{% block extra_css %}
+<style>
+.register-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+}
+.register-card {
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border-radius: 15px;
+}
+.form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+}
+.btn-primary:hover {
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+}
+.password-strength {
+    height: 5px;
+    border-radius: 3px;
+    margin-top: 5px;
+    transition: all 0.3s ease;
+}
+.strength-weak { background-color: #dc3545; width: 33%; }
+.strength-medium { background-color: #ffc107; width: 66%; }
+.strength-strong { background-color: #28a745; width: 100%; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="register-container">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card register-card">
+                    <div class="card-body p-5">
+                        <!-- Logo and Title -->
+                        <div class="text-center mb-4">
+                            <i class="fas fa-university fa-3x text-primary mb-3"></i>
+                            <h3>Create Account</h3>
+                            <p class="text-muted">Join SecureBank for secure digital banking</p>
+                        </div>
+
+                        <!-- Registration Form -->
+                        <form method="post" id="registerForm">
+                            {% csrf_token %}
+                            
+                            <!-- Personal Information -->
+                            <h6 class="mb-3">Personal Information</h6>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="firstName" class="form-label">First Name</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-user"></i>
+                                        </span>
+                                        <input type="text" class="form-control" id="firstName" name="first_name" 
+                                               placeholder="First name" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
+                                    <label for="lastName" class="form-label">Last Name</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-user"></i>
+                                        </span>
+                                        <input type="text" class="form-control" id="lastName" name="last_name" 
+                                               placeholder="Last name" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-envelope"></i>
+                                    </span>
+                                    <input type="email" class="form-control" id="email" name="email" 
+                                           placeholder="Enter your email" required>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="phoneNumber" class="form-label">Phone Number</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-phone"></i>
+                                    </span>
+                                    <input type="tel" class="form-control" id="phoneNumber" name="phone_number" 
+                                           placeholder="+2348000000000" required>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="dateOfBirth" class="form-label">Date of Birth</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-calendar"></i>
+                                    </span>
+                                    <input type="date" class="form-control" id="dateOfBirth" name="date_of_birth" required>
+                                </div>
+                            </div>
+
+                            <!-- Account Information -->
+                            <hr class="my-4">
+                            <h6 class="mb-3">Account Information</h6>
+
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-at"></i>
+                                    </span>
+                                    <input type="text" class="form-control" id="username" name="username" 
+                                           placeholder="Choose a username" required>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-lock"></i>
+                                    </span>
+                                    <input type="password" class="form-control" id="password" name="password" 
+                                           placeholder="Create a strong password" required>
+                                    <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="password-strength" id="passwordStrength"></div>
+                                <small class="text-muted">Password must be at least 12 characters with uppercase, lowercase, numbers, and special characters.</small>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-lock"></i>
+                                    </span>
+                                    <input type="password" class="form-control" id="confirmPassword" name="confirm_password" 
+                                           placeholder="Confirm your password" required>
+                                </div>
+                            </div>
+
+                            <!-- Terms and Conditions -->
+                            <div class="mb-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+                                    <label class="form-check-label" for="agreeTerms">
+                                        I agree to the <a href="#" class="text-decoration-none">Terms of Service</a> 
+                                        and <a href="#" class="text-decoration-none">Privacy Policy</a>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Register Button -->
+                            <div class="d-grid mb-4">
+                                <button type="submit" class="btn btn-primary btn-lg" id="registerBtn">
+                                    <i class="fas fa-user-plus me-2"></i>Create Account
+                                </button>
+                            </div>
+
+                            <!-- Login Link -->
+                            <div class="text-center">
+                                <p class="mb-0">Already have an account? 
+                                    <a href="{% url 'login' %}" class="text-decoration-none">Sign in</a>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Security Features -->
+                <div class="card mt-3 border-0 bg-transparent">
+                    <div class="card-body text-white">
+                        <h6 class="text-center mb-3">Why Choose SecureBank?</h6>
+                        <div class="row text-center">
+                            <div class="col-3">
+                                <i class="fas fa-shield-alt fa-2x mb-2"></i>
+                                <div class="small">Bank-Grade Security</div>
+                            </div>
+                            <div class="col-3">
+                                <i class="fas fa-lock fa-2x mb-2"></i>
+                                <div class="small">256-bit Encryption</div>
+                            </div>
+                            <div class="col-3">
+                                <i class="fas fa-user-shield fa-2x mb-2"></i>
+                                <div class="small">2FA Protection</div>
+                            </div>
+                            <div class="col-3">
+                                <i class="fas fa-headset fa-2x mb-2"></i>
+                                <div class="small">24/7 Support</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+$(document).ready(function() {
+    // Toggle password visibility
+    $('#togglePassword').click(function() {
+        const passwordField = $('#password');
+        const icon = $(this).find('i');
+        
+        if (passwordField.attr('type') === 'password') {
+            passwordField.attr('type', 'text');
+            icon.removeClass('fa-eye').addClass('fa-eye-slash');
+        } else {
+            passwordField.attr('type', 'password');
+            icon.removeClass('fa-eye-slash').addClass('fa-eye');
+        }
+    });
+
+    // Password strength checker
+    $('#password').on('input', function() {
+        const password = $(this).val();
+        const strengthBar = $('#passwordStrength');
+        
+        let strength = 0;
+        
+        // Check password strength
+        if (password.length >= 12) strength++;
+        if (password.match(/[a-z]/)) strength++;
+        if (password.match(/[A-Z]/)) strength++;
+        if (password.match(/[0-9]/)) strength++;
+        if (password.match(/[^a-zA-Z0-9]/)) strength++;
+        
+        // Update strength bar
+        strengthBar.removeClass('strength-weak strength-medium strength-strong');
+        
+        if (password.length === 0) {
+            strengthBar.css('width', '0%');
+        } else if (strength <= 2) {
+            strengthBar.addClass('strength-weak');
+        } else if (strength <= 4) {
+            strengthBar.addClass('strength-medium');
+        } else {
+            strengthBar.addClass('strength-strong');
+        }
+    });
+
+    // Handle registration form submission
+    $('#registerForm').submit(function(e) {
+        e.preventDefault();
+        
+        // Validate passwords match
+        const password = $('#password').val();
+        const confirmPassword = $('#confirmPassword').val();
+        
+        if (password !== confirmPassword) {
+            showAlert('Passwords do not match', 'danger');
+            return;
+        }
+        
+        // Check password strength
+        if (password.length < 12) {
+            showAlert('Password must be at least 12 characters long', 'warning');
+            return;
+        }
+        
+        // Validate terms agreement
+        if (!$('#agreeTerms').is(':checked')) {
+            showAlert('You must agree to the terms and conditions', 'warning');
+            return;
+        }
+        
+        const registerBtn = $('#registerBtn');
+        
+        // Show loading state
+        registerBtn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin me-2"></i>Creating Account...');
+        
+        // Collect form data
+        const formData = {
+            first_name: $('#firstName').val(),
+            last_name: $('#lastName').val(),
+            email: $('#email').val(),
+            phone_number: $('#phoneNumber').val(),
+            date_of_birth: $('#dateOfBirth').val(),
+            username: $('#username').val(),
+            password: password,
+            confirm_password: confirmPassword,
+            csrfmiddlewaretoken: $('[name=csrfmiddlewaretoken]').val()
+        };
+        
+        // Simulate API call (replace with actual AJAX call)
+        setTimeout(function() {
+            // In a real implementation, you would make an AJAX call to your registration endpoint
+            $.ajax({
+                url: '/api/v1/auth/register/',
+                method: 'POST',
+                data: formData,
+                success: function(response) {
+                    showAlert('Account created successfully! Please check your email to verify your account.', 'success');
+                    
+                    // Redirect to login after 3 seconds
+                    setTimeout(function() {
+                        window.location.href = '/login/';
+                    }, 3000);
+                },
+                error: function(xhr) {
+                    const error = xhr.responseJSON ? xhr.responseJSON.message : 'Registration failed';
+                    showAlert(error, 'danger');
+                    registerBtn.prop('disabled', false).html('<i class="fas fa-user-plus me-2"></i>Create Account');
+                }
+            });
+        }, 1500);
+    });
+
+    // Helper function to show alerts
+    function showAlert(message, type) {
+        const alertHtml = `
+            <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        `;
+        
+        // Insert alert at the top of the form
+        $('#registerForm').prepend(alertHtml);
+        
+        // Auto-dismiss after 5 seconds
+        setTimeout(function() {
+            $('.alert').alert('close');
+        }, 5000);
+    }
+
+    // Phone number formatting
+    $('#phoneNumber').on('input', function() {
+        let value = $(this).val().replace(/\D/g, '');
+        
+        // Add country code if not present
+        if (value.length === 10 && !value.startsWith('234')) {
+            value = '234' + value;
+        }
+        
+        $(this).val(value);
+    });
+});
+</script>
+{% endblock %}
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>

@@ -1,0 +1,268 @@
+{% extends 'base.html' %}
+
+{% block title %}Login - SecureBank{% endblock %}
+
+{% block extra_css %}
+<style>
+.login-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login-card {
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border-radius: 15px;
+}
+.form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+}
+.btn-primary:hover {
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+}
+.security-features {
+    font-size: 0.9rem;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-7">
+                <div class="card login-card">
+                    <div class="card-body p-5">
+                        <!-- Logo and Title -->
+                        <div class="text-center mb-4">
+                            <i class="fas fa-university fa-3x text-primary mb-3"></i>
+                            <h3>Welcome Back</h3>
+                            <p class="text-muted">Sign in to your SecureBank account</p>
+                        </div>
+
+                        <!-- Login Form -->
+                        <form method="post" id="loginForm">
+                            {% csrf_token %}
+                            
+                            <!-- Email Field -->
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-envelope"></i>
+                                    </span>
+                                    <input type="email" class="form-control" id="email" name="email" 
+                                           placeholder="Enter your email" required>
+                                </div>
+                            </div>
+
+                            <!-- Password Field -->
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-lock"></i>
+                                    </span>
+                                    <input type="password" class="form-control" id="password" name="password" 
+                                           placeholder="Enter your password" required>
+                                    <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Remember Me & Forgot Password -->
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="rememberMe">
+                                    <label class="form-check-label" for="rememberMe">
+                                        Remember me
+                                    </label>
+                                </div>
+                                <a href="#" class="text-decoration-none">Forgot password?</a>
+                            </div>
+
+                            <!-- Login Button -->
+                            <div class="d-grid mb-4">
+                                <button type="submit" class="btn btn-primary btn-lg" id="loginBtn">
+                                    <i class="fas fa-sign-in-alt me-2"></i>Sign In
+                                </button>
+                            </div>
+
+                            <!-- 2FA Section (hidden by default) -->
+                            <div id="twoFactorSection" class="d-none">
+                                <hr>
+                                <h6 class="text-center mb-3">Two-Factor Authentication</h6>
+                                <div class="mb-3">
+                                    <label for="otpCode" class="form-label">Enter OTP Code</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-shield-alt"></i>
+                                        </span>
+                                        <input type="text" class="form-control" id="otpCode" 
+                                               placeholder="Enter 6-digit code" maxlength="6">
+                                    </div>
+                                </div>
+                                <div class="d-grid">
+                                    <button type="button" class="btn btn-success" id="verifyOTPBtn">
+                                        <i class="fas fa-check me-2"></i>Verify OTP
+                                    </button>
+                                </div>
+                                <div class="text-center mt-2">
+                                    <small>Didn't receive code? <a href="#" id="resendOTP">Resend</a></small>
+                                </div>
+                            </div>
+
+                            <!-- Divider -->
+                            <div class="text-center mb-3">
+                                <span class="text-muted">or</span>
+                            </div>
+
+                            <!-- Register Link -->
+                            <div class="text-center">
+                                <p class="mb-0">Don't have an account? 
+                                    <a href="{% url 'register' %}" class="text-decoration-none">Sign up</a>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Security Features -->
+                <div class="card mt-3 border-0 bg-transparent">
+                    <div class="card-body text-white security-features">
+                        <div class="row text-center">
+                            <div class="col-4">
+                                <i class="fas fa-lock fa-2x mb-2"></i>
+                                <div>256-bit Encryption</div>
+                            </div>
+                            <div class="col-4">
+                                <i class="fas fa-shield-alt fa-2x mb-2"></i>
+                                <div>2FA Protection</div>
+                            </div>
+                            <div class="col-4">
+                                <i class="fas fa-user-shield fa-2x mb-2"></i>
+                                <div>Fraud Detection</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+$(document).ready(function() {
+    // Toggle password visibility
+    $('#togglePassword').click(function() {
+        const passwordField = $('#password');
+        const icon = $(this).find('i');
+        
+        if (passwordField.attr('type') === 'password') {
+            passwordField.attr('type', 'text');
+            icon.removeClass('fa-eye').addClass('fa-eye-slash');
+        } else {
+            passwordField.attr('type', 'password');
+            icon.removeClass('fa-eye-slash').addClass('fa-eye');
+        }
+    });
+
+    // Handle login form submission
+    $('#loginForm').submit(function(e) {
+        e.preventDefault();
+        
+        const email = $('#email').val();
+        const password = $('#password').val();
+        const loginBtn = $('#loginBtn');
+        
+        // Show loading state
+        loginBtn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin me-2"></i>Signing in...');
+        
+        // Simulate API call (replace with actual AJAX call)
+        setTimeout(function() {
+            // For demo purposes, show 2FA section
+            $('#twoFactorSection').removeClass('d-none');
+            loginBtn.prop('disabled', false).html('<i class="fas fa-sign-in-alt me-2"></i>Sign In');
+            
+            // In a real implementation, you would make an AJAX call to your login endpoint
+            $.ajax({
+                url: '/api/v1/auth/login/',
+                method: 'POST',
+                data: {
+                    email: email,
+                    password: password,
+                    csrfmiddlewaretoken: $('[name=csrfmiddlewaretoken]').val()
+                },
+                success: function(response) {
+                    if (response.requires_2fa) {
+                        $('#twoFactorSection').removeClass('d-none');
+                    } else {
+                        // Redirect to dashboard
+                        window.location.href = '/dashboard/';
+                    }
+                },
+                error: function(xhr) {
+                    // Show error message
+                    const error = xhr.responseJSON ? xhr.responseJSON.message : 'Login failed';
+                    showAlert(error, 'danger');
+                    loginBtn.prop('disabled', false).html('<i class="fas fa-sign-in-alt me-2"></i>Sign In');
+                }
+            });
+        }, 1000);
+    });
+
+    // Handle OTP verification
+    $('#verifyOTPBtn').click(function() {
+        const otpCode = $('#otpCode').val();
+        
+        if (otpCode.length !== 6) {
+            showAlert('Please enter a valid 6-digit OTP code', 'warning');
+            return;
+        }
+        
+        $(this).prop('disabled', true).html('<i class="fas fa-spinner fa-spin me-2"></i>Verifying...');
+        
+        // Simulate OTP verification
+        setTimeout(function() {
+            // Redirect to dashboard on success
+            window.location.href = '/dashboard/';
+        }, 1500);
+    });
+
+    // Handle OTP resend
+    $('#resendOTP').click(function(e) {
+        e.preventDefault();
+        showAlert('OTP has been resent to your registered device', 'info');
+    });
+
+    // Helper function to show alerts
+    function showAlert(message, type) {
+        const alertHtml = `
+            <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        `;
+        
+        // Insert alert at the top of the form
+        $('#loginForm').prepend(alertHtml);
+        
+        // Auto-dismiss after 5 seconds
+        setTimeout(function() {
+            $('.alert').alert('close');
+        }, 5000);
+    }
+});
+</script>
+{% endblock %}
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>

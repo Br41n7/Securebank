@@ -1,0 +1,45 @@
+services:
+  # Web Service
+  - type: web
+    name: securebank
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput"
+    startCommand: "gunicorn securebank.wsgi:application"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: DJANGO_SETTINGS_MODULE
+        value: securebank.settings
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: false
+      - key: ALLOWED_HOSTS
+        value: .onrender.com
+      - key: DATABASE_URL
+        fromDatabase:
+          name: securebank-db
+          property: connectionString
+      - key: PAYSTACK_PUBLIC_KEY
+        sync: false
+      - key: PAYSTACK_SECRET_KEY
+        sync: false
+      - key: EMAIL_HOST_USER
+        sync: false
+      - key: EMAIL_HOST_PASSWORD
+        sync: false
+
+  # Database Service
+  - type: pserv
+    name: securebank-db
+    env: postgres
+    plan: free
+    databaseName: securebank
+    user: securebank
+
+# Static File Handling
+disk:
+  name: securebank-static
+  mountPath: /opt/render/project/static
+  sizeGB: 1
