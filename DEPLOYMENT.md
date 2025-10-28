@@ -148,8 +148,8 @@ sudo usermod -aG sudo securebank
 sudo su - securebank
 
 # Clone repository
-git clone <your-repo-url> securebank
-cd securebank
+git clone https://github.com/br41n7/Securebank
+cd Securebank
 
 # Create virtual environment
 python3.11 -m venv venv
@@ -356,5 +356,5 @@ sudo tail -f /var/log/postgresql/postgresql-13-main.log
 
 For deployment issues:
 - Check the [GitHub Issues](#)
-- Email: iyanuolalegan@gmail.com
+- Email: iyanuolalegan1@gmail.com
 - Documentation: [Wiki](#)

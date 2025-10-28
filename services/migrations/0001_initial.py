@@ -13,189 +13,726 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('accounts', '0001_initial'),
+        ("accounts", "0001_initial"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='ServiceCategory',
+            name="ServiceCategory",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100, unique=True, verbose_name='name')),
-                ('description', models.TextField(blank=True, verbose_name='description')),
-                ('icon', models.CharField(blank=True, max_length=50, verbose_name='icon')),
-                ('is_active', models.BooleanField(default=True, verbose_name='active')),
-                ('display_order', models.PositiveIntegerField(default=0, verbose_name='display order')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='created at')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='updated at')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(max_length=100, unique=True, verbose_name="name"),
+                ),
+                (
+                    "description",
+                    models.TextField(blank=True, verbose_name="description"),
+                ),
+                (
+                    "icon",
+                    models.CharField(blank=True, max_length=50, verbose_name="icon"),
+                ),
+                ("is_active", models.BooleanField(default=True, verbose_name="active")),
+                (
+                    "display_order",
+                    models.PositiveIntegerField(
+                        default=0, verbose_name="display order"
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now_add=True, verbose_name="created at"),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="updated at"),
+                ),
             ],
             options={
-                'verbose_name': 'Service Category',
-                'verbose_name_plural': 'Service Categories',
-                'db_table': 'services_category',
-                'ordering': ['display_order', 'name'],
+                "verbose_name": "Service Category",
+                "verbose_name_plural": "Service Categories",
+                "db_table": "services_category",
+                "ordering": ["display_order", "name"],
             },
         ),
         migrations.CreateModel(
-            name='ServiceProvider',
+            name="ServiceProvider",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=200, verbose_name='provider name')),
-                ('service_type', models.CharField(choices=[('AIRTIME', 'Airtime'), ('INTERNET', 'Internet'), ('ELECTRICITY', 'Electricity'), ('TV_SUBSCRIPTION', 'TV Subscription'), ('SCHOOL_FEES', 'School Fees'), ('WATER', 'Water Bill'), ('GAS', 'Gas Bill'), ('INSURANCE', 'Insurance'), ('TAX', 'Tax Payment')], max_length=20, verbose_name='service type')),
-                ('code', models.CharField(max_length=50, unique=True, verbose_name='provider code')),
-                ('logo', models.ImageField(blank=True, null=True, upload_to='provider_logos/', verbose_name='logo')),
-                ('description', models.TextField(blank=True, verbose_name='description')),
-                ('website', models.URLField(blank=True, verbose_name='website')),
-                ('support_contact', models.CharField(blank=True, max_length=100, verbose_name='support contact')),
-                ('is_active', models.BooleanField(default=True, verbose_name='active')),
-                ('service_charge', models.DecimalField(decimal_places=2, default=Decimal('0.00'), max_digits=10, verbose_name='service charge')),
-                ('charge_type', models.CharField(choices=[('FIXED', 'Fixed'), ('PERCENTAGE', 'Percentage')], default='FIXED', max_length=10, verbose_name='charge type')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='created at')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='updated at')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(max_length=200, verbose_name="provider name"),
+                ),
+                (
+                    "service_type",
+                    models.CharField(
+                        choices=[
+                            ("AIRTIME", "Airtime"),
+                            ("INTERNET", "Internet"),
+                            ("ELECTRICITY", "Electricity"),
+                            ("TV_SUBSCRIPTION", "TV Subscription"),
+                            ("SCHOOL_FEES", "School Fees"),
+                            ("WATER", "Water Bill"),
+                            ("GAS", "Gas Bill"),
+                            ("INSURANCE", "Insurance"),
+                            ("TAX", "Tax Payment"),
+                        ],
+                        max_length=20,
+                        verbose_name="service type",
+                    ),
+                ),
+                (
+                    "code",
+                    models.CharField(
+                        max_length=50, unique=True, verbose_name="provider code"
+                    ),
+                ),
+                (
+                    "logo",
+                    models.ImageField(
+                        blank=True,
+                        null=True,
+                        upload_to="provider_logos/",
+                        verbose_name="logo",
+                    ),
+                ),
+                (
+                    "description",
+                    models.TextField(blank=True, verbose_name="description"),
+                ),
+                ("website", models.URLField(blank=True, verbose_name="website")),
+                (
+                    "support_contact",
+                    models.CharField(
+                        blank=True, max_length=100, verbose_name="support contact"
+                    ),
+                ),
+                ("is_active", models.BooleanField(default=True, verbose_name="active")),
+                (
+                    "service_charge",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=Decimal("0.00"),
+                        max_digits=10,
+                        verbose_name="service charge",
+                    ),
+                ),
+                (
+                    "charge_type",
+                    models.CharField(
+                        choices=[("FIXED", "Fixed"), ("PERCENTAGE", "Percentage")],
+                        default="FIXED",
+                        max_length=10,
+                        verbose_name="charge type",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now_add=True, verbose_name="created at"),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="updated at"),
+                ),
             ],
             options={
-                'verbose_name': 'Service Provider',
-                'verbose_name_plural': 'Service Providers',
-                'db_table': 'services_provider',
+                "verbose_name": "Service Provider",
+                "verbose_name_plural": "Service Providers",
+                "db_table": "services_provider",
             },
         ),
         migrations.CreateModel(
-            name='SchoolFeePayment',
+            name="SchoolFeePayment",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
-                ('reference', models.CharField(max_length=50, unique=True, verbose_name='transaction reference')),
-                ('school_name', models.CharField(max_length=200, verbose_name='school name')),
-                ('school_code', models.CharField(blank=True, max_length=50, verbose_name='school code')),
-                ('student_name', models.CharField(max_length=200, verbose_name='student name')),
-                ('student_id', models.CharField(max_length=100, verbose_name='student ID')),
-                ('class_grade', models.CharField(blank=True, max_length=50, verbose_name='class/grade')),
-                ('academic_session', models.CharField(max_length=50, verbose_name='academic session')),
-                ('payment_type', models.CharField(choices=[('TUITION', 'Tuition Fee'), ('ACCOMMODATION', 'Accommodation'), ('LAB_FEES', 'Lab Fees'), ('LIBRARY', 'Library Fees'), ('SPORTS', 'Sports Fees'), ('EXAMINATION', 'Examination Fees'), ('OTHER', 'Other')], max_length=20, verbose_name='payment type')),
-                ('amount', models.DecimalField(decimal_places=2, max_digits=10, validators=[django.core.validators.MinValueValidator(Decimal('1000.00'))], verbose_name='amount')),
-                ('service_charge', models.DecimalField(decimal_places=2, default=Decimal('0.00'), max_digits=10, verbose_name='service charge')),
-                ('total_amount', models.DecimalField(decimal_places=2, max_digits=10, verbose_name='total amount')),
-                ('status', models.CharField(choices=[('PENDING', 'Pending'), ('PROCESSING', 'Processing'), ('COMPLETED', 'Completed'), ('FAILED', 'Failed'), ('REFUNDED', 'Refunded')], default='PENDING', max_length=20, verbose_name='status')),
-                ('receipt_number', models.CharField(blank=True, max_length=100, verbose_name='receipt number')),
-                ('ip_address', models.GenericIPAddressField(blank=True, null=True, verbose_name='IP address')),
-                ('user_agent', models.TextField(blank=True, verbose_name='user agent')),
-                ('notes', models.TextField(blank=True, verbose_name='notes')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='created at')),
-                ('processed_at', models.DateTimeField(blank=True, null=True, verbose_name='processed at')),
-                ('completed_at', models.DateTimeField(blank=True, null=True, verbose_name='completed at')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='updated at')),
-                ('account', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='school_fee_payments', to='accounts.bankaccount')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='school_fee_payments', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                    ),
+                ),
+                (
+                    "reference",
+                    models.CharField(
+                        max_length=50, unique=True, verbose_name="transaction reference"
+                    ),
+                ),
+                (
+                    "school_name",
+                    models.CharField(max_length=200, verbose_name="school name"),
+                ),
+                (
+                    "school_code",
+                    models.CharField(
+                        blank=True, max_length=50, verbose_name="school code"
+                    ),
+                ),
+                (
+                    "student_name",
+                    models.CharField(max_length=200, verbose_name="student name"),
+                ),
+                (
+                    "student_id",
+                    models.CharField(max_length=100, verbose_name="student ID"),
+                ),
+                (
+                    "class_grade",
+                    models.CharField(
+                        blank=True, max_length=50, verbose_name="class/grade"
+                    ),
+                ),
+                (
+                    "academic_session",
+                    models.CharField(max_length=50, verbose_name="academic session"),
+                ),
+                (
+                    "payment_type",
+                    models.CharField(
+                        choices=[
+                            ("TUITION", "Tuition Fee"),
+                            ("ACCOMMODATION", "Accommodation"),
+                            ("LAB_FEES", "Lab Fees"),
+                            ("LIBRARY", "Library Fees"),
+                            ("SPORTS", "Sports Fees"),
+                            ("EXAMINATION", "Examination Fees"),
+                            ("OTHER", "Other"),
+                        ],
+                        max_length=20,
+                        verbose_name="payment type",
+                    ),
+                ),
+                (
+                    "amount",
+                    models.DecimalField(
+                        decimal_places=2,
+                        max_digits=10,
+                        validators=[
+                            django.core.validators.MinValueValidator(Decimal("1000.00"))
+                        ],
+                        verbose_name="amount",
+                    ),
+                ),
+                (
+                    "service_charge",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=Decimal("0.00"),
+                        max_digits=10,
+                        verbose_name="service charge",
+                    ),
+                ),
+                (
+                    "total_amount",
+                    models.DecimalField(
+                        decimal_places=2, max_digits=10, verbose_name="total amount"
+                    ),
+                ),
+                (
+                    "status",
+                    models.CharField(
+                        choices=[
+                            ("PENDING", "Pending"),
+                            ("PROCESSING", "Processing"),
+                            ("COMPLETED", "Completed"),
+                            ("FAILED", "Failed"),
+                            ("REFUNDED", "Refunded"),
+                        ],
+                        default="PENDING",
+                        max_length=20,
+                        verbose_name="status",
+                    ),
+                ),
+                (
+                    "receipt_number",
+                    models.CharField(
+                        blank=True, max_length=100, verbose_name="receipt number"
+                    ),
+                ),
+                (
+                    "ip_address",
+                    models.GenericIPAddressField(
+                        blank=True, null=True, verbose_name="IP address"
+                    ),
+                ),
+                ("user_agent", models.TextField(blank=True, verbose_name="user agent")),
+                ("notes", models.TextField(blank=True, verbose_name="notes")),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now_add=True, verbose_name="created at"),
+                ),
+                (
+                    "processed_at",
+                    models.DateTimeField(
+                        blank=True, null=True, verbose_name="processed at"
+                    ),
+                ),
+                (
+                    "completed_at",
+                    models.DateTimeField(
+                        blank=True, null=True, verbose_name="completed at"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="updated at"),
+                ),
+                (
+                    "account",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="school_fee_payments",
+                        to="accounts.bankaccount",
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="school_fee_payments",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'School Fee Payment',
-                'verbose_name_plural': 'School Fee Payments',
-                'db_table': 'services_school_fee_payment',
-                'ordering': ['-created_at'],
+                "verbose_name": "School Fee Payment",
+                "verbose_name_plural": "School Fee Payments",
+                "db_table": "services_school_fee_payment",
+                "ordering": ["-created_at"],
             },
         ),
         migrations.CreateModel(
-            name='BillPayment',
+            name="BillPayment",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
-                ('reference', models.CharField(max_length=50, unique=True, verbose_name='transaction reference')),
-                ('bill_type', models.CharField(choices=[('ELECTRICITY', 'Electricity'), ('WATER', 'Water'), ('GAS', 'Gas'), ('INTERNET', 'Internet'), ('TV_SUBSCRIPTION', 'TV Subscription'), ('INSURANCE', 'Insurance'), ('TAX', 'Tax'), ('OTHER', 'Other')], max_length=20, verbose_name='bill type')),
-                ('customer_id', models.CharField(max_length=100, verbose_name='customer ID')),
-                ('customer_name', models.CharField(max_length=200, verbose_name='customer name')),
-                ('meter_number', models.CharField(blank=True, max_length=100, verbose_name='meter number')),
-                ('account_number', models.CharField(blank=True, max_length=100, verbose_name='account number')),
-                ('amount', models.DecimalField(decimal_places=2, max_digits=10, validators=[django.core.validators.MinValueValidator(Decimal('100.00'))], verbose_name='amount')),
-                ('service_charge', models.DecimalField(decimal_places=2, default=Decimal('0.00'), max_digits=10, verbose_name='service charge')),
-                ('total_amount', models.DecimalField(decimal_places=2, max_digits=10, verbose_name='total amount')),
-                ('status', models.CharField(choices=[('PENDING', 'Pending'), ('PROCESSING', 'Processing'), ('COMPLETED', 'Completed'), ('FAILED', 'Failed'), ('REFUNDED', 'Refunded')], default='PENDING', max_length=20, verbose_name='status')),
-                ('provider_reference', models.CharField(blank=True, max_length=100, verbose_name='provider reference')),
-                ('token', models.CharField(blank=True, max_length=200, verbose_name='token')),
-                ('ip_address', models.GenericIPAddressField(blank=True, null=True, verbose_name='IP address')),
-                ('user_agent', models.TextField(blank=True, verbose_name='user agent')),
-                ('notes', models.TextField(blank=True, verbose_name='notes')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='created at')),
-                ('processed_at', models.DateTimeField(blank=True, null=True, verbose_name='processed at')),
-                ('completed_at', models.DateTimeField(blank=True, null=True, verbose_name='completed at')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='updated at')),
-                ('account', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='bill_payments', to='accounts.bankaccount')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='bill_payments', to=settings.AUTH_USER_MODEL)),
-                ('provider', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='bill_payments', to='services.serviceprovider')),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                    ),
+                ),
+                (
+                    "reference",
+                    models.CharField(
+                        max_length=50, unique=True, verbose_name="transaction reference"
+                    ),
+                ),
+                (
+                    "bill_type",
+                    models.CharField(
+                        choices=[
+                            ("ELECTRICITY", "Electricity"),
+                            ("WATER", "Water"),
+                            ("GAS", "Gas"),
+                            ("INTERNET", "Internet"),
+                            ("TV_SUBSCRIPTION", "TV Subscription"),
+                            ("INSURANCE", "Insurance"),
+                            ("TAX", "Tax"),
+                            ("OTHER", "Other"),
+                        ],
+                        max_length=20,
+                        verbose_name="bill type",
+                    ),
+                ),
+                (
+                    "customer_id",
+                    models.CharField(max_length=100, verbose_name="customer ID"),
+                ),
+                (
+                    "customer_name",
+                    models.CharField(max_length=200, verbose_name="customer name"),
+                ),
+                (
+                    "meter_number",
+                    models.CharField(
+                        blank=True, max_length=100, verbose_name="meter number"
+                    ),
+                ),
+                (
+                    "account_number",
+                    models.CharField(
+                        blank=True, max_length=100, verbose_name="account number"
+                    ),
+                ),
+                (
+                    "amount",
+                    models.DecimalField(
+                        decimal_places=2,
+                        max_digits=10,
+                        validators=[
+                            django.core.validators.MinValueValidator(Decimal("100.00"))
+                        ],
+                        verbose_name="amount",
+                    ),
+                ),
+                (
+                    "service_charge",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=Decimal("0.00"),
+                        max_digits=10,
+                        verbose_name="service charge",
+                    ),
+                ),
+                (
+                    "total_amount",
+                    models.DecimalField(
+                        decimal_places=2, max_digits=10, verbose_name="total amount"
+                    ),
+                ),
+                (
+                    "status",
+                    models.CharField(
+                        choices=[
+                            ("PENDING", "Pending"),
+                            ("PROCESSING", "Processing"),
+                            ("COMPLETED", "Completed"),
+                            ("FAILED", "Failed"),
+                            ("REFUNDED", "Refunded"),
+                        ],
+                        default="PENDING",
+                        max_length=20,
+                        verbose_name="status",
+                    ),
+                ),
+                (
+                    "provider_reference",
+                    models.CharField(
+                        blank=True, max_length=100, verbose_name="provider reference"
+                    ),
+                ),
+                (
+                    "token",
+                    models.CharField(blank=True, max_length=200, verbose_name="token"),
+                ),
+                (
+                    "ip_address",
+                    models.GenericIPAddressField(
+                        blank=True, null=True, verbose_name="IP address"
+                    ),
+                ),
+                ("user_agent", models.TextField(blank=True, verbose_name="user agent")),
+                ("notes", models.TextField(blank=True, verbose_name="notes")),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now_add=True, verbose_name="created at"),
+                ),
+                (
+                    "processed_at",
+                    models.DateTimeField(
+                        blank=True, null=True, verbose_name="processed at"
+                    ),
+                ),
+                (
+                    "completed_at",
+                    models.DateTimeField(
+                        blank=True, null=True, verbose_name="completed at"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="updated at"),
+                ),
+                (
+                    "account",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="bill_payments",
+                        to="accounts.bankaccount",
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="bill_payments",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                (
+                    "provider",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="bill_payments",
+                        to="services.serviceprovider",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Bill Payment',
-                'verbose_name_plural': 'Bill Payments',
-                'db_table': 'services_bill_payment',
-                'ordering': ['-created_at'],
+                "verbose_name": "Bill Payment",
+                "verbose_name_plural": "Bill Payments",
+                "db_table": "services_bill_payment",
+                "ordering": ["-created_at"],
             },
         ),
         migrations.CreateModel(
-            name='AirtimeTopUp',
+            name="AirtimeTopUp",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
-                ('reference', models.CharField(max_length=50, unique=True, verbose_name='transaction reference')),
-                ('phone_number', models.CharField(max_length=15, verbose_name='phone number')),
-                ('network', models.CharField(max_length=50, verbose_name='network')),
-                ('amount', models.DecimalField(decimal_places=2, max_digits=10, validators=[django.core.validators.MinValueValidator(Decimal('50.00'))], verbose_name='amount')),
-                ('service_charge', models.DecimalField(decimal_places=2, default=Decimal('0.00'), max_digits=10, verbose_name='service charge')),
-                ('total_amount', models.DecimalField(decimal_places=2, max_digits=10, verbose_name='total amount')),
-                ('status', models.CharField(choices=[('PENDING', 'Pending'), ('PROCESSING', 'Processing'), ('COMPLETED', 'Completed'), ('FAILED', 'Failed'), ('REFUNDED', 'Refunded')], default='PENDING', max_length=20, verbose_name='status')),
-                ('provider_reference', models.CharField(blank=True, max_length=100, verbose_name='provider reference')),
-                ('ip_address', models.GenericIPAddressField(blank=True, null=True, verbose_name='IP address')),
-                ('user_agent', models.TextField(blank=True, verbose_name='user agent')),
-                ('notes', models.TextField(blank=True, verbose_name='notes')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='created at')),
-                ('processed_at', models.DateTimeField(blank=True, null=True, verbose_name='processed at')),
-                ('completed_at', models.DateTimeField(blank=True, null=True, verbose_name='completed at')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='updated at')),
-                ('account', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='airtime_topups', to='accounts.bankaccount')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='airtime_topups', to=settings.AUTH_USER_MODEL)),
-                ('provider', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='airtime_topups', to='services.serviceprovider')),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                    ),
+                ),
+                (
+                    "reference",
+                    models.CharField(
+                        max_length=50, unique=True, verbose_name="transaction reference"
+                    ),
+                ),
+                (
+                    "phone_number",
+                    models.CharField(max_length=15, verbose_name="phone number"),
+                ),
+                ("network", models.CharField(max_length=50, verbose_name="network")),
+                (
+                    "amount",
+                    models.DecimalField(
+                        decimal_places=2,
+                        max_digits=10,
+                        validators=[
+                            django.core.validators.MinValueValidator(Decimal("50.00"))
+                        ],
+                        verbose_name="amount",
+                    ),
+                ),
+                (
+                    "service_charge",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=Decimal("0.00"),
+                        max_digits=10,
+                        verbose_name="service charge",
+                    ),
+                ),
+                (
+                    "total_amount",
+                    models.DecimalField(
+                        decimal_places=2, max_digits=10, verbose_name="total amount"
+                    ),
+                ),
+                (
+                    "status",
+                    models.CharField(
+                        choices=[
+                            ("PENDING", "Pending"),
+                            ("PROCESSING", "Processing"),
+                            ("COMPLETED", "Completed"),
+                            ("FAILED", "Failed"),
+                            ("REFUNDED", "Refunded"),
+                        ],
+                        default="PENDING",
+                        max_length=20,
+                        verbose_name="status",
+                    ),
+                ),
+                (
+                    "provider_reference",
+                    models.CharField(
+                        blank=True, max_length=100, verbose_name="provider reference"
+                    ),
+                ),
+                (
+                    "ip_address",
+                    models.GenericIPAddressField(
+                        blank=True, null=True, verbose_name="IP address"
+                    ),
+                ),
+                ("user_agent", models.TextField(blank=True, verbose_name="user agent")),
+                ("notes", models.TextField(blank=True, verbose_name="notes")),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now_add=True, verbose_name="created at"),
+                ),
+                (
+                    "processed_at",
+                    models.DateTimeField(
+                        blank=True, null=True, verbose_name="processed at"
+                    ),
+                ),
+                (
+                    "completed_at",
+                    models.DateTimeField(
+                        blank=True, null=True, verbose_name="completed at"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="updated at"),
+                ),
+                (
+                    "account",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="airtime_topups",
+                        to="accounts.bankaccount",
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="airtime_topups",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                (
+                    "provider",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="airtime_topups",
+                        to="services.serviceprovider",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Airtime Top-up',
-                'verbose_name_plural': 'Airtime Top-ups',
-                'db_table': 'services_airtime_topup',
-                'ordering': ['-created_at'],
+                "verbose_name": "Airtime Top-up",
+                "verbose_name_plural": "Airtime Top-ups",
+                "db_table": "services_airtime_topup",
+                "ordering": ["-created_at"],
             },
         ),
         migrations.CreateModel(
-            name='ServiceTransaction',
+            name="ServiceTransaction",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
-                ('service_type', models.CharField(max_length=20, verbose_name='service type')),
-                ('service_id', models.CharField(max_length=50, verbose_name='service ID')),
-                ('amount', models.DecimalField(decimal_places=2, max_digits=10, verbose_name='amount')),
-                ('status', models.CharField(max_length=20, verbose_name='status')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='created at')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='service_transactions', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                    ),
+                ),
+                (
+                    "service_type",
+                    models.CharField(max_length=20, verbose_name="service type"),
+                ),
+                (
+                    "service_id",
+                    models.CharField(max_length=50, verbose_name="service ID"),
+                ),
+                (
+                    "amount",
+                    models.DecimalField(
+                        decimal_places=2, max_digits=10, verbose_name="amount"
+                    ),
+                ),
+                ("status", models.CharField(max_length=20, verbose_name="status")),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now_add=True, verbose_name="created at"),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="service_transactions",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Service Transaction',
-                'verbose_name_plural': 'Service Transactions',
-                'db_table': 'services_transaction',
+                "verbose_name": "Service Transaction",
+                "verbose_name_plural": "Service Transactions",
+                "db_table": "services_transaction",
             },
         ),
         migrations.CreateModel(
-            name='SavedService',
+            name="SavedService",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('service_type', models.CharField(max_length=20, verbose_name='service type')),
-                ('customer_details', models.JSONField(default=dict, verbose_name='customer details')),
-                ('nickname', models.CharField(blank=True, max_length=100, verbose_name='nickname')),
-                ('is_favorite', models.BooleanField(default=False, verbose_name='favorite')),
-                ('last_used', models.DateTimeField(blank=True, null=True, verbose_name='last used')),
-                ('usage_count', models.PositiveIntegerField(default=0, verbose_name='usage count')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='created at')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='updated at')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='saved_services', to=settings.AUTH_USER_MODEL)),
-                ('provider', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='saved_by', to='services.serviceprovider')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "service_type",
+                    models.CharField(max_length=20, verbose_name="service type"),
+                ),
+                (
+                    "customer_details",
+                    models.JSONField(default=dict, verbose_name="customer details"),
+                ),
+                (
+                    "nickname",
+                    models.CharField(
+                        blank=True, max_length=100, verbose_name="nickname"
+                    ),
+                ),
+                (
+                    "is_favorite",
+                    models.BooleanField(default=False, verbose_name="favorite"),
+                ),
+                (
+                    "last_used",
+                    models.DateTimeField(
+                        blank=True, null=True, verbose_name="last used"
+                    ),
+                ),
+                (
+                    "usage_count",
+                    models.PositiveIntegerField(default=0, verbose_name="usage count"),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now_add=True, verbose_name="created at"),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="updated at"),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="saved_services",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                (
+                    "provider",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="saved_by",
+                        to="services.serviceprovider",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Saved Service',
-                'verbose_name_plural': 'Saved Services',
-                'db_table': 'services_saved',
-                'ordering': ['-is_favorite', 'last_used'],
-                'unique_together': {('user', 'provider', 'service_type')},
+                "verbose_name": "Saved Service",
+                "verbose_name_plural": "Saved Services",
+                "db_table": "services_saved",
+                "ordering": ["-is_favorite", "last_used"],
+                "unique_together": {("user", "provider", "service_type")},
             },
         ),
     ]

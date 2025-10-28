@@ -17,152 +17,638 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='GiftCardType',
+            name="GiftCardType",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100, unique=True, verbose_name='name')),
-                ('category', models.CharField(choices=[('RETAIL', 'Retail'), ('GAMING', 'Gaming'), ('STREAMING', 'Streaming'), ('FOOD', 'Food & Dining'), ('TRAVEL', 'Travel'), ('GENERAL', 'General Purpose')], max_length=20, verbose_name='category')),
-                ('description', models.TextField(blank=True, verbose_name='description')),
-                ('logo', models.ImageField(blank=True, null=True, upload_to='giftcard_logos/', verbose_name='logo')),
-                ('is_active', models.BooleanField(default=True, verbose_name='active')),
-                ('buy_rate', models.DecimalField(decimal_places=2, default=Decimal('85.00'), max_digits=5, verbose_name='buy rate %')),
-                ('sell_rate', models.DecimalField(decimal_places=2, default=Decimal('95.00'), max_digits=5, verbose_name='sell rate %')),
-                ('min_amount', models.DecimalField(decimal_places=2, default=Decimal('10.00'), max_digits=10, verbose_name='minimum amount')),
-                ('max_amount', models.DecimalField(decimal_places=2, default=Decimal('1000.00'), max_digits=10, verbose_name='maximum amount')),
-                ('supported_countries', models.TextField(default='US,CA,UK', help_text='Comma-separated country codes', verbose_name='supported countries')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='created at')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='updated at')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(max_length=100, unique=True, verbose_name="name"),
+                ),
+                (
+                    "category",
+                    models.CharField(
+                        choices=[
+                            ("RETAIL", "Retail"),
+                            ("GAMING", "Gaming"),
+                            ("STREAMING", "Streaming"),
+                            ("FOOD", "Food & Dining"),
+                            ("TRAVEL", "Travel"),
+                            ("GENERAL", "General Purpose"),
+                        ],
+                        max_length=20,
+                        verbose_name="category",
+                    ),
+                ),
+                (
+                    "description",
+                    models.TextField(blank=True, verbose_name="description"),
+                ),
+                (
+                    "logo",
+                    models.ImageField(
+                        blank=True,
+                        null=True,
+                        upload_to="giftcard_logos/",
+                        verbose_name="logo",
+                    ),
+                ),
+                ("is_active", models.BooleanField(default=True, verbose_name="active")),
+                (
+                    "buy_rate",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=Decimal("85.00"),
+                        max_digits=5,
+                        verbose_name="buy rate %",
+                    ),
+                ),
+                (
+                    "sell_rate",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=Decimal("95.00"),
+                        max_digits=5,
+                        verbose_name="sell rate %",
+                    ),
+                ),
+                (
+                    "min_amount",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=Decimal("10.00"),
+                        max_digits=10,
+                        verbose_name="minimum amount",
+                    ),
+                ),
+                (
+                    "max_amount",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=Decimal("1000.00"),
+                        max_digits=10,
+                        verbose_name="maximum amount",
+                    ),
+                ),
+                (
+                    "supported_countries",
+                    models.TextField(
+                        default="US,CA,UK",
+                        help_text="Comma-separated country codes",
+                        verbose_name="supported countries",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now_add=True, verbose_name="created at"),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="updated at"),
+                ),
             ],
             options={
-                'verbose_name': 'Gift Card Type',
-                'verbose_name_plural': 'Gift Card Types',
-                'db_table': 'giftcards_giftcard_type',
+                "verbose_name": "Gift Card Type",
+                "verbose_name_plural": "Gift Card Types",
+                "db_table": "giftcards_giftcard_type",
             },
         ),
         migrations.CreateModel(
-            name='GiftCard',
+            name="GiftCard",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
-                ('card_code', models.CharField(max_length=100, verbose_name='card code')),
-                ('pin', models.CharField(blank=True, max_length=50, verbose_name='PIN')),
-                ('face_value', models.DecimalField(decimal_places=2, max_digits=10, verbose_name='face value')),
-                ('currency', models.CharField(default='USD', max_length=3, verbose_name='currency')),
-                ('expiry_date', models.DateField(blank=True, null=True, verbose_name='expiry date')),
-                ('condition', models.CharField(choices=[('NEW', 'New'), ('LIKE_NEW', 'Like New'), ('GOOD', 'Good'), ('FAIR', 'Fair'), ('POOR', 'Poor')], default='NEW', max_length=10, verbose_name='condition')),
-                ('receipt_image', models.ImageField(blank=True, null=True, upload_to='giftcard_receipts/', verbose_name='receipt image')),
-                ('card_image', models.ImageField(blank=True, null=True, upload_to='giftcard_images/', verbose_name='card image')),
-                ('status', models.CharField(choices=[('PENDING', 'Pending Verification'), ('VERIFIED', 'Verified'), ('REJECTED', 'Rejected'), ('SOLD', 'Sold'), ('EXPIRED', 'Expired'), ('CANCELLED', 'Cancelled')], default='PENDING', max_length=20, verbose_name='status')),
-                ('offered_price', models.DecimalField(decimal_places=2, max_digits=10, verbose_name='offered price')),
-                ('final_price', models.DecimalField(blank=True, decimal_places=2, max_digits=10, null=True, verbose_name='final price')),
-                ('verification_notes', models.TextField(blank=True, verbose_name='verification notes')),
-                ('verified_at', models.DateTimeField(blank=True, null=True, verbose_name='verified at')),
-                ('notes', models.TextField(blank=True, verbose_name='notes')),
-                ('country', models.CharField(default='US', max_length=2, verbose_name='country')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='created at')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='updated at')),
-                ('seller', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='sold_giftcards', to=settings.AUTH_USER_MODEL)),
-                ('verified_by', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='verified_giftcards', to=settings.AUTH_USER_MODEL)),
-                ('gift_card_type', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='cards', to='giftcards.giftcardtype')),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                    ),
+                ),
+                (
+                    "card_code",
+                    models.CharField(max_length=100, verbose_name="card code"),
+                ),
+                (
+                    "pin",
+                    models.CharField(blank=True, max_length=50, verbose_name="PIN"),
+                ),
+                (
+                    "face_value",
+                    models.DecimalField(
+                        decimal_places=2, max_digits=10, verbose_name="face value"
+                    ),
+                ),
+                (
+                    "currency",
+                    models.CharField(
+                        default="USD", max_length=3, verbose_name="currency"
+                    ),
+                ),
+                (
+                    "expiry_date",
+                    models.DateField(blank=True, null=True, verbose_name="expiry date"),
+                ),
+                (
+                    "condition",
+                    models.CharField(
+                        choices=[
+                            ("NEW", "New"),
+                            ("LIKE_NEW", "Like New"),
+                            ("GOOD", "Good"),
+                            ("FAIR", "Fair"),
+                            ("POOR", "Poor"),
+                        ],
+                        default="NEW",
+                        max_length=10,
+                        verbose_name="condition",
+                    ),
+                ),
+                (
+                    "receipt_image",
+                    models.ImageField(
+                        blank=True,
+                        null=True,
+                        upload_to="giftcard_receipts/",
+                        verbose_name="receipt image",
+                    ),
+                ),
+                (
+                    "card_image",
+                    models.ImageField(
+                        blank=True,
+                        null=True,
+                        upload_to="giftcard_images/",
+                        verbose_name="card image",
+                    ),
+                ),
+                (
+                    "status",
+                    models.CharField(
+                        choices=[
+                            ("PENDING", "Pending Verification"),
+                            ("VERIFIED", "Verified"),
+                            ("REJECTED", "Rejected"),
+                            ("SOLD", "Sold"),
+                            ("EXPIRED", "Expired"),
+                            ("CANCELLED", "Cancelled"),
+                        ],
+                        default="PENDING",
+                        max_length=20,
+                        verbose_name="status",
+                    ),
+                ),
+                (
+                    "offered_price",
+                    models.DecimalField(
+                        decimal_places=2, max_digits=10, verbose_name="offered price"
+                    ),
+                ),
+                (
+                    "final_price",
+                    models.DecimalField(
+                        blank=True,
+                        decimal_places=2,
+                        max_digits=10,
+                        null=True,
+                        verbose_name="final price",
+                    ),
+                ),
+                (
+                    "verification_notes",
+                    models.TextField(blank=True, verbose_name="verification notes"),
+                ),
+                (
+                    "verified_at",
+                    models.DateTimeField(
+                        blank=True, null=True, verbose_name="verified at"
+                    ),
+                ),
+                ("notes", models.TextField(blank=True, verbose_name="notes")),
+                (
+                    "country",
+                    models.CharField(
+                        default="US", max_length=2, verbose_name="country"
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now_add=True, verbose_name="created at"),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="updated at"),
+                ),
+                (
+                    "seller",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="sold_giftcards",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                (
+                    "verified_by",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        related_name="verified_giftcards",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                (
+                    "gift_card_type",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="cards",
+                        to="giftcards.giftcardtype",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Gift Card',
-                'verbose_name_plural': 'Gift Cards',
-                'db_table': 'giftcards_giftcard',
-                'ordering': ['-created_at'],
+                "verbose_name": "Gift Card",
+                "verbose_name_plural": "Gift Cards",
+                "db_table": "giftcards_giftcard",
+                "ordering": ["-created_at"],
             },
         ),
         migrations.CreateModel(
-            name='GiftCardTransaction',
+            name="GiftCardTransaction",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
-                ('reference', models.CharField(max_length=50, unique=True, verbose_name='transaction reference')),
-                ('transaction_type', models.CharField(choices=[('BUY', 'Buy from User'), ('SELL', 'Sell to User'), ('TRADE', 'Trade')], max_length=10, verbose_name='transaction type')),
-                ('amount', models.DecimalField(decimal_places=2, max_digits=10, verbose_name='amount')),
-                ('fee', models.DecimalField(decimal_places=2, default=Decimal('0.00'), max_digits=10, verbose_name='fee')),
-                ('total_amount', models.DecimalField(decimal_places=2, max_digits=10, verbose_name='total amount')),
-                ('status', models.CharField(choices=[('PENDING', 'Pending'), ('PROCESSING', 'Processing'), ('COMPLETED', 'Completed'), ('CANCELLED', 'Cancelled'), ('DISPUTED', 'Disputed')], default='PENDING', max_length=20, verbose_name='status')),
-                ('payment_method', models.CharField(blank=True, max_length=50, verbose_name='payment method')),
-                ('payment_reference', models.CharField(blank=True, max_length=100, verbose_name='payment reference')),
-                ('requires_verification', models.BooleanField(default=True, verbose_name='requires verification')),
-                ('verified', models.BooleanField(default=False, verbose_name='verified')),
-                ('ip_address', models.GenericIPAddressField(blank=True, null=True, verbose_name='IP address')),
-                ('user_agent', models.TextField(blank=True, verbose_name='user agent')),
-                ('notes', models.TextField(blank=True, verbose_name='notes')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='created at')),
-                ('processed_at', models.DateTimeField(blank=True, null=True, verbose_name='processed at')),
-                ('completed_at', models.DateTimeField(blank=True, null=True, verbose_name='completed at')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='updated at')),
-                ('buyer', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='bought_giftcards', to=settings.AUTH_USER_MODEL)),
-                ('gift_card', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='transactions', to='giftcards.giftcard')),
-                ('seller', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='sold_giftcard_transactions', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                    ),
+                ),
+                (
+                    "reference",
+                    models.CharField(
+                        max_length=50, unique=True, verbose_name="transaction reference"
+                    ),
+                ),
+                (
+                    "transaction_type",
+                    models.CharField(
+                        choices=[
+                            ("BUY", "Buy from User"),
+                            ("SELL", "Sell to User"),
+                            ("TRADE", "Trade"),
+                        ],
+                        max_length=10,
+                        verbose_name="transaction type",
+                    ),
+                ),
+                (
+                    "amount",
+                    models.DecimalField(
+                        decimal_places=2, max_digits=10, verbose_name="amount"
+                    ),
+                ),
+                (
+                    "fee",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=Decimal("0.00"),
+                        max_digits=10,
+                        verbose_name="fee",
+                    ),
+                ),
+                (
+                    "total_amount",
+                    models.DecimalField(
+                        decimal_places=2, max_digits=10, verbose_name="total amount"
+                    ),
+                ),
+                (
+                    "status",
+                    models.CharField(
+                        choices=[
+                            ("PENDING", "Pending"),
+                            ("PROCESSING", "Processing"),
+                            ("COMPLETED", "Completed"),
+                            ("CANCELLED", "Cancelled"),
+                            ("DISPUTED", "Disputed"),
+                        ],
+                        default="PENDING",
+                        max_length=20,
+                        verbose_name="status",
+                    ),
+                ),
+                (
+                    "payment_method",
+                    models.CharField(
+                        blank=True, max_length=50, verbose_name="payment method"
+                    ),
+                ),
+                (
+                    "payment_reference",
+                    models.CharField(
+                        blank=True, max_length=100, verbose_name="payment reference"
+                    ),
+                ),
+                (
+                    "requires_verification",
+                    models.BooleanField(
+                        default=True, verbose_name="requires verification"
+                    ),
+                ),
+                (
+                    "verified",
+                    models.BooleanField(default=False, verbose_name="verified"),
+                ),
+                (
+                    "ip_address",
+                    models.GenericIPAddressField(
+                        blank=True, null=True, verbose_name="IP address"
+                    ),
+                ),
+                ("user_agent", models.TextField(blank=True, verbose_name="user agent")),
+                ("notes", models.TextField(blank=True, verbose_name="notes")),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now_add=True, verbose_name="created at"),
+                ),
+                (
+                    "processed_at",
+                    models.DateTimeField(
+                        blank=True, null=True, verbose_name="processed at"
+                    ),
+                ),
+                (
+                    "completed_at",
+                    models.DateTimeField(
+                        blank=True, null=True, verbose_name="completed at"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="updated at"),
+                ),
+                (
+                    "buyer",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="bought_giftcards",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                (
+                    "gift_card",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="transactions",
+                        to="giftcards.giftcard",
+                    ),
+                ),
+                (
+                    "seller",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="sold_giftcard_transactions",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Gift Card Transaction',
-                'verbose_name_plural': 'Gift Card Transactions',
-                'db_table': 'giftcards_transaction',
-                'ordering': ['-created_at'],
+                "verbose_name": "Gift Card Transaction",
+                "verbose_name_plural": "Gift Card Transactions",
+                "db_table": "giftcards_transaction",
+                "ordering": ["-created_at"],
             },
         ),
         migrations.CreateModel(
-            name='GiftCardDispute',
+            name="GiftCardDispute",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('dispute_type', models.CharField(choices=[('INVALID_CODE', 'Invalid Code'), ('USED_CODE', 'Already Used'), ('WRONG_VALUE', 'Wrong Value'), ('EXPIRED', 'Expired Card'), ('OTHER', 'Other')], max_length=20, verbose_name='dispute type')),
-                ('description', models.TextField(verbose_name='description')),
-                ('evidence', models.ImageField(blank=True, null=True, upload_to='dispute_evidence/', verbose_name='evidence')),
-                ('status', models.CharField(choices=[('OPEN', 'Open'), ('UNDER_REVIEW', 'Under Review'), ('RESOLVED', 'Resolved'), ('CLOSED', 'Closed')], default='OPEN', max_length=20, verbose_name='status')),
-                ('resolution', models.TextField(blank=True, verbose_name='resolution')),
-                ('resolved_at', models.DateTimeField(blank=True, null=True, verbose_name='resolved at')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='created at')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='updated at')),
-                ('raised_by', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='raised_disputes', to=settings.AUTH_USER_MODEL)),
-                ('resolved_by', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='resolved_disputes', to=settings.AUTH_USER_MODEL)),
-                ('transaction', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='dispute', to='giftcards.giftcardtransaction')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "dispute_type",
+                    models.CharField(
+                        choices=[
+                            ("INVALID_CODE", "Invalid Code"),
+                            ("USED_CODE", "Already Used"),
+                            ("WRONG_VALUE", "Wrong Value"),
+                            ("EXPIRED", "Expired Card"),
+                            ("OTHER", "Other"),
+                        ],
+                        max_length=20,
+                        verbose_name="dispute type",
+                    ),
+                ),
+                ("description", models.TextField(verbose_name="description")),
+                (
+                    "evidence",
+                    models.ImageField(
+                        blank=True,
+                        null=True,
+                        upload_to="dispute_evidence/",
+                        verbose_name="evidence",
+                    ),
+                ),
+                (
+                    "status",
+                    models.CharField(
+                        choices=[
+                            ("OPEN", "Open"),
+                            ("UNDER_REVIEW", "Under Review"),
+                            ("RESOLVED", "Resolved"),
+                            ("CLOSED", "Closed"),
+                        ],
+                        default="OPEN",
+                        max_length=20,
+                        verbose_name="status",
+                    ),
+                ),
+                ("resolution", models.TextField(blank=True, verbose_name="resolution")),
+                (
+                    "resolved_at",
+                    models.DateTimeField(
+                        blank=True, null=True, verbose_name="resolved at"
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now_add=True, verbose_name="created at"),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="updated at"),
+                ),
+                (
+                    "raised_by",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="raised_disputes",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                (
+                    "resolved_by",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        related_name="resolved_disputes",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                (
+                    "transaction",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="dispute",
+                        to="giftcards.giftcardtransaction",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Gift Card Dispute',
-                'verbose_name_plural': 'Gift Card Disputes',
-                'db_table': 'giftcards_dispute',
+                "verbose_name": "Gift Card Dispute",
+                "verbose_name_plural": "Gift Card Disputes",
+                "db_table": "giftcards_dispute",
             },
         ),
         migrations.CreateModel(
-            name='GiftCardRate',
+            name="GiftCardRate",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('buy_rate', models.DecimalField(decimal_places=2, max_digits=5, verbose_name='buy rate %')),
-                ('sell_rate', models.DecimalField(decimal_places=2, max_digits=5, verbose_name='sell rate %')),
-                ('min_amount', models.DecimalField(decimal_places=2, max_digits=10, verbose_name='minimum amount')),
-                ('max_amount', models.DecimalField(decimal_places=2, max_digits=10, verbose_name='maximum amount')),
-                ('valid_from', models.DateTimeField(auto_now_add=True, verbose_name='valid from')),
-                ('valid_until', models.DateTimeField(blank=True, null=True, verbose_name='valid until')),
-                ('is_active', models.BooleanField(default=True, verbose_name='active')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='created at')),
-                ('gift_card_type', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='rates', to='giftcards.giftcardtype')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "buy_rate",
+                    models.DecimalField(
+                        decimal_places=2, max_digits=5, verbose_name="buy rate %"
+                    ),
+                ),
+                (
+                    "sell_rate",
+                    models.DecimalField(
+                        decimal_places=2, max_digits=5, verbose_name="sell rate %"
+                    ),
+                ),
+                (
+                    "min_amount",
+                    models.DecimalField(
+                        decimal_places=2, max_digits=10, verbose_name="minimum amount"
+                    ),
+                ),
+                (
+                    "max_amount",
+                    models.DecimalField(
+                        decimal_places=2, max_digits=10, verbose_name="maximum amount"
+                    ),
+                ),
+                (
+                    "valid_from",
+                    models.DateTimeField(auto_now_add=True, verbose_name="valid from"),
+                ),
+                (
+                    "valid_until",
+                    models.DateTimeField(
+                        blank=True, null=True, verbose_name="valid until"
+                    ),
+                ),
+                ("is_active", models.BooleanField(default=True, verbose_name="active")),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now_add=True, verbose_name="created at"),
+                ),
+                (
+                    "gift_card_type",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="rates",
+                        to="giftcards.giftcardtype",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Gift Card Rate',
-                'verbose_name_plural': 'Gift Card Rates',
-                'db_table': 'giftcards_rate',
-                'ordering': ['-valid_from'],
+                "verbose_name": "Gift Card Rate",
+                "verbose_name_plural": "Gift Card Rates",
+                "db_table": "giftcards_rate",
+                "ordering": ["-valid_from"],
             },
         ),
         migrations.CreateModel(
-            name='GiftCardInventory',
+            name="GiftCardInventory",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('quantity', models.PositiveIntegerField(default=0, verbose_name='quantity')),
-                ('face_value', models.DecimalField(decimal_places=2, max_digits=10, verbose_name='face value')),
-                ('selling_price', models.DecimalField(decimal_places=2, max_digits=10, verbose_name='selling price')),
-                ('is_available', models.BooleanField(default=True, verbose_name='available')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='created at')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='updated at')),
-                ('gift_card_type', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='inventory', to='giftcards.giftcardtype')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "quantity",
+                    models.PositiveIntegerField(default=0, verbose_name="quantity"),
+                ),
+                (
+                    "face_value",
+                    models.DecimalField(
+                        decimal_places=2, max_digits=10, verbose_name="face value"
+                    ),
+                ),
+                (
+                    "selling_price",
+                    models.DecimalField(
+                        decimal_places=2, max_digits=10, verbose_name="selling price"
+                    ),
+                ),
+                (
+                    "is_available",
+                    models.BooleanField(default=True, verbose_name="available"),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now_add=True, verbose_name="created at"),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="updated at"),
+                ),
+                (
+                    "gift_card_type",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="inventory",
+                        to="giftcards.giftcardtype",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Gift Card Inventory',
-                'verbose_name_plural': 'Gift Card Inventory',
-                'db_table': 'giftcards_inventory',
-                'unique_together': {('gift_card_type', 'face_value')},
+                "verbose_name": "Gift Card Inventory",
+                "verbose_name_plural": "Gift Card Inventory",
+                "db_table": "giftcards_inventory",
+                "unique_together": {("gift_card_type", "face_value")},
             },
         ),
     ]

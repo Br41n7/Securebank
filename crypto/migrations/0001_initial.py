@@ -18,142 +18,618 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Cryptocurrency',
+            name="Cryptocurrency",
             fields=[
-                ('symbol', models.CharField(max_length=10, primary_key=True, serialize=False, verbose_name='symbol')),
-                ('name', models.CharField(max_length=50, verbose_name='name')),
-                ('crypto_type', models.CharField(choices=[('BTC', 'Bitcoin'), ('ETH', 'Ethereum'), ('USDT', 'Tether'), ('USDC', 'USD Coin'), ('BNB', 'Binance Coin'), ('ADA', 'Cardano'), ('SOL', 'Solana'), ('DOT', 'Polkadot')], max_length=10, verbose_name='crypto type')),
-                ('current_price', models.DecimalField(decimal_places=8, default=Decimal('0E-8'), max_digits=20, verbose_name='current price')),
-                ('market_cap', models.DecimalField(decimal_places=2, default=Decimal('0.00'), max_digits=20, verbose_name='market cap')),
-                ('circulating_supply', models.DecimalField(decimal_places=8, default=Decimal('0E-8'), max_digits=30, verbose_name='circulating supply')),
-                ('is_active', models.BooleanField(default=True, verbose_name='active')),
-                ('min_purchase_amount', models.DecimalField(decimal_places=8, default=Decimal('1E-8'), max_digits=15, verbose_name='min purchase amount')),
-                ('max_purchase_amount', models.DecimalField(decimal_places=8, default=Decimal('1000000.00000000'), max_digits=15, verbose_name='max purchase amount')),
-                ('network_fee', models.DecimalField(decimal_places=8, default=Decimal('0E-8'), max_digits=15, verbose_name='network fee')),
-                ('withdrawal_fee', models.DecimalField(decimal_places=8, default=Decimal('0E-8'), max_digits=15, verbose_name='withdrawal fee')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='created at')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='updated at')),
+                (
+                    "symbol",
+                    models.CharField(
+                        max_length=10,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="symbol",
+                    ),
+                ),
+                ("name", models.CharField(max_length=50, verbose_name="name")),
+                (
+                    "crypto_type",
+                    models.CharField(
+                        choices=[
+                            ("BTC", "Bitcoin"),
+                            ("ETH", "Ethereum"),
+                            ("USDT", "Tether"),
+                            ("USDC", "USD Coin"),
+                            ("BNB", "Binance Coin"),
+                            ("ADA", "Cardano"),
+                            ("SOL", "Solana"),
+                            ("DOT", "Polkadot"),
+                        ],
+                        max_length=10,
+                        verbose_name="crypto type",
+                    ),
+                ),
+                (
+                    "current_price",
+                    models.DecimalField(
+                        decimal_places=8,
+                        default=Decimal("0E-8"),
+                        max_digits=20,
+                        verbose_name="current price",
+                    ),
+                ),
+                (
+                    "market_cap",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=Decimal("0.00"),
+                        max_digits=20,
+                        verbose_name="market cap",
+                    ),
+                ),
+                (
+                    "circulating_supply",
+                    models.DecimalField(
+                        decimal_places=8,
+                        default=Decimal("0E-8"),
+                        max_digits=30,
+                        verbose_name="circulating supply",
+                    ),
+                ),
+                ("is_active", models.BooleanField(default=True, verbose_name="active")),
+                (
+                    "min_purchase_amount",
+                    models.DecimalField(
+                        decimal_places=8,
+                        default=Decimal("1E-8"),
+                        max_digits=15,
+                        verbose_name="min purchase amount",
+                    ),
+                ),
+                (
+                    "max_purchase_amount",
+                    models.DecimalField(
+                        decimal_places=8,
+                        default=Decimal("1000000.00000000"),
+                        max_digits=15,
+                        verbose_name="max purchase amount",
+                    ),
+                ),
+                (
+                    "network_fee",
+                    models.DecimalField(
+                        decimal_places=8,
+                        default=Decimal("0E-8"),
+                        max_digits=15,
+                        verbose_name="network fee",
+                    ),
+                ),
+                (
+                    "withdrawal_fee",
+                    models.DecimalField(
+                        decimal_places=8,
+                        default=Decimal("0E-8"),
+                        max_digits=15,
+                        verbose_name="withdrawal fee",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now_add=True, verbose_name="created at"),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="updated at"),
+                ),
             ],
             options={
-                'verbose_name': 'Cryptocurrency',
-                'verbose_name_plural': 'Cryptocurrencies',
-                'db_table': 'crypto_cryptocurrency',
+                "verbose_name": "Cryptocurrency",
+                "verbose_name_plural": "Cryptocurrencies",
+                "db_table": "crypto_cryptocurrency",
             },
         ),
         migrations.CreateModel(
-            name='CryptoPortfolio',
+            name="CryptoPortfolio",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('total_value_usd', models.DecimalField(decimal_places=2, default=Decimal('0.00'), max_digits=15, verbose_name='total value USD')),
-                ('total_invested_usd', models.DecimalField(decimal_places=2, default=Decimal('0.00'), max_digits=15, verbose_name='total invested USD')),
-                ('total_profit_loss_usd', models.DecimalField(decimal_places=2, default=Decimal('0.00'), max_digits=15, verbose_name='total profit/loss USD')),
-                ('total_profit_loss_percentage', models.DecimalField(decimal_places=2, default=Decimal('0.00'), max_digits=10, verbose_name='total profit/loss %')),
-                ('last_updated', models.DateTimeField(auto_now=True, verbose_name='last updated')),
-                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='crypto_portfolio', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "total_value_usd",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=Decimal("0.00"),
+                        max_digits=15,
+                        verbose_name="total value USD",
+                    ),
+                ),
+                (
+                    "total_invested_usd",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=Decimal("0.00"),
+                        max_digits=15,
+                        verbose_name="total invested USD",
+                    ),
+                ),
+                (
+                    "total_profit_loss_usd",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=Decimal("0.00"),
+                        max_digits=15,
+                        verbose_name="total profit/loss USD",
+                    ),
+                ),
+                (
+                    "total_profit_loss_percentage",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=Decimal("0.00"),
+                        max_digits=10,
+                        verbose_name="total profit/loss %",
+                    ),
+                ),
+                (
+                    "last_updated",
+                    models.DateTimeField(auto_now=True, verbose_name="last updated"),
+                ),
+                (
+                    "user",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="crypto_portfolio",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Crypto Portfolio',
-                'verbose_name_plural': 'Crypto Portfolios',
-                'db_table': 'crypto_portfolio',
+                "verbose_name": "Crypto Portfolio",
+                "verbose_name_plural": "Crypto Portfolios",
+                "db_table": "crypto_portfolio",
             },
         ),
         migrations.CreateModel(
-            name='CryptoWallet',
+            name="CryptoWallet",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
-                ('wallet_address', models.CharField(max_length=255, unique=True, verbose_name='wallet address')),
-                ('wallet_type', models.CharField(choices=[('HOT', 'Hot Wallet'), ('COLD', 'Cold Wallet'), ('CUSTODIAL', 'Custodial Wallet')], default='CUSTODIAL', max_length=10, verbose_name='wallet type')),
-                ('balance', models.DecimalField(decimal_places=8, default=Decimal('0E-8'), max_digits=30, verbose_name='balance')),
-                ('available_balance', models.DecimalField(decimal_places=8, default=Decimal('0E-8'), max_digits=30, verbose_name='available balance')),
-                ('frozen_balance', models.DecimalField(decimal_places=8, default=Decimal('0E-8'), max_digits=30, verbose_name='frozen balance')),
-                ('status', models.CharField(choices=[('ACTIVE', 'Active'), ('FROZEN', 'Frozen'), ('CLOSED', 'Closed')], default='ACTIVE', max_length=10, verbose_name='status')),
-                ('is_default', models.BooleanField(default=False, verbose_name='default wallet')),
-                ('private_key_encrypted', models.TextField(blank=True, verbose_name='encrypted private key')),
-                ('public_key', models.TextField(blank=True, verbose_name='public key')),
-                ('mnemonic_encrypted', models.TextField(blank=True, verbose_name='encrypted mnemonic')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='created at')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='updated at')),
-                ('cryptocurrency', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='wallets', to='crypto.cryptocurrency')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='crypto_wallets', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                    ),
+                ),
+                (
+                    "wallet_address",
+                    models.CharField(
+                        max_length=255, unique=True, verbose_name="wallet address"
+                    ),
+                ),
+                (
+                    "wallet_type",
+                    models.CharField(
+                        choices=[
+                            ("HOT", "Hot Wallet"),
+                            ("COLD", "Cold Wallet"),
+                            ("CUSTODIAL", "Custodial Wallet"),
+                        ],
+                        default="CUSTODIAL",
+                        max_length=10,
+                        verbose_name="wallet type",
+                    ),
+                ),
+                (
+                    "balance",
+                    models.DecimalField(
+                        decimal_places=8,
+                        default=Decimal("0E-8"),
+                        max_digits=30,
+                        verbose_name="balance",
+                    ),
+                ),
+                (
+                    "available_balance",
+                    models.DecimalField(
+                        decimal_places=8,
+                        default=Decimal("0E-8"),
+                        max_digits=30,
+                        verbose_name="available balance",
+                    ),
+                ),
+                (
+                    "frozen_balance",
+                    models.DecimalField(
+                        decimal_places=8,
+                        default=Decimal("0E-8"),
+                        max_digits=30,
+                        verbose_name="frozen balance",
+                    ),
+                ),
+                (
+                    "status",
+                    models.CharField(
+                        choices=[
+                            ("ACTIVE", "Active"),
+                            ("FROZEN", "Frozen"),
+                            ("CLOSED", "Closed"),
+                        ],
+                        default="ACTIVE",
+                        max_length=10,
+                        verbose_name="status",
+                    ),
+                ),
+                (
+                    "is_default",
+                    models.BooleanField(default=False, verbose_name="default wallet"),
+                ),
+                (
+                    "private_key_encrypted",
+                    models.TextField(blank=True, verbose_name="encrypted private key"),
+                ),
+                ("public_key", models.TextField(blank=True, verbose_name="public key")),
+                (
+                    "mnemonic_encrypted",
+                    models.TextField(blank=True, verbose_name="encrypted mnemonic"),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now_add=True, verbose_name="created at"),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="updated at"),
+                ),
+                (
+                    "cryptocurrency",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="wallets",
+                        to="crypto.cryptocurrency",
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="crypto_wallets",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Crypto Wallet',
-                'verbose_name_plural': 'Crypto Wallets',
-                'db_table': 'crypto_wallet',
-                'ordering': ['-created_at'],
-                'unique_together': {('user', 'cryptocurrency')},
+                "verbose_name": "Crypto Wallet",
+                "verbose_name_plural": "Crypto Wallets",
+                "db_table": "crypto_wallet",
+                "ordering": ["-created_at"],
+                "unique_together": {("user", "cryptocurrency")},
             },
         ),
         migrations.CreateModel(
-            name='CryptoPriceHistory',
+            name="CryptoPriceHistory",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('price', models.DecimalField(decimal_places=8, max_digits=20, verbose_name='price')),
-                ('market_cap', models.DecimalField(decimal_places=2, default=Decimal('0.00'), max_digits=20, verbose_name='market cap')),
-                ('volume_24h', models.DecimalField(decimal_places=2, default=Decimal('0.00'), max_digits=20, verbose_name='24h volume')),
-                ('timestamp', models.DateTimeField(auto_now_add=True, verbose_name='timestamp')),
-                ('cryptocurrency', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='price_history', to='crypto.cryptocurrency')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "price",
+                    models.DecimalField(
+                        decimal_places=8, max_digits=20, verbose_name="price"
+                    ),
+                ),
+                (
+                    "market_cap",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=Decimal("0.00"),
+                        max_digits=20,
+                        verbose_name="market cap",
+                    ),
+                ),
+                (
+                    "volume_24h",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=Decimal("0.00"),
+                        max_digits=20,
+                        verbose_name="24h volume",
+                    ),
+                ),
+                (
+                    "timestamp",
+                    models.DateTimeField(auto_now_add=True, verbose_name="timestamp"),
+                ),
+                (
+                    "cryptocurrency",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="price_history",
+                        to="crypto.cryptocurrency",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Crypto Price History',
-                'verbose_name_plural': 'Crypto Price History',
-                'db_table': 'crypto_price_history',
-                'ordering': ['-timestamp'],
-                'indexes': [models.Index(fields=['cryptocurrency', 'timestamp'], name='crypto_pric_cryptoc_5adb69_idx')],
+                "verbose_name": "Crypto Price History",
+                "verbose_name_plural": "Crypto Price History",
+                "db_table": "crypto_price_history",
+                "ordering": ["-timestamp"],
+                "indexes": [
+                    models.Index(
+                        fields=["cryptocurrency", "timestamp"],
+                        name="crypto_pric_cryptoc_5adb69_idx",
+                    )
+                ],
             },
         ),
         migrations.CreateModel(
-            name='CryptoTransaction',
+            name="CryptoTransaction",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
-                ('reference', models.CharField(max_length=50, unique=True, verbose_name='transaction reference')),
-                ('transaction_type', models.CharField(choices=[('BUY', 'Buy'), ('SELL', 'Sell'), ('SEND', 'Send'), ('RECEIVE', 'Receive'), ('SWAP', 'Swap'), ('CONVERT', 'Convert')], max_length=10, verbose_name='transaction type')),
-                ('amount', models.DecimalField(decimal_places=8, max_digits=30, validators=[django.core.validators.MinValueValidator(Decimal('1E-8'))], verbose_name='amount')),
-                ('price_per_unit', models.DecimalField(decimal_places=8, default=Decimal('0E-8'), max_digits=20, verbose_name='price per unit')),
-                ('total_value', models.DecimalField(decimal_places=2, default=Decimal('0.00'), max_digits=15, verbose_name='total value')),
-                ('to_address', models.CharField(blank=True, max_length=255, verbose_name='to address')),
-                ('from_address', models.CharField(blank=True, max_length=255, verbose_name='from address')),
-                ('blockchain_tx_hash', models.CharField(blank=True, max_length=255, verbose_name='blockchain transaction hash')),
-                ('confirmations', models.PositiveIntegerField(default=0, verbose_name='confirmations')),
-                ('required_confirmations', models.PositiveIntegerField(default=3, verbose_name='required confirmations')),
-                ('network_fee', models.DecimalField(decimal_places=8, default=Decimal('0E-8'), max_digits=15, verbose_name='network fee')),
-                ('service_fee', models.DecimalField(decimal_places=2, default=Decimal('0.00'), max_digits=15, verbose_name='service fee')),
-                ('status', models.CharField(choices=[('PENDING', 'Pending'), ('PROCESSING', 'Processing'), ('COMPLETED', 'Completed'), ('FAILED', 'Failed'), ('CANCELLED', 'Cancelled')], default='PENDING', max_length=20, verbose_name='status')),
-                ('ip_address', models.GenericIPAddressField(blank=True, null=True, verbose_name='IP address')),
-                ('user_agent', models.TextField(blank=True, verbose_name='user agent')),
-                ('notes', models.TextField(blank=True, verbose_name='notes')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='created at')),
-                ('processed_at', models.DateTimeField(blank=True, null=True, verbose_name='processed at')),
-                ('completed_at', models.DateTimeField(blank=True, null=True, verbose_name='completed at')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='updated at')),
-                ('cryptocurrency', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='transactions', to='crypto.cryptocurrency')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='crypto_transactions', to=settings.AUTH_USER_MODEL)),
-                ('wallet', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='transactions', to='crypto.cryptowallet')),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                    ),
+                ),
+                (
+                    "reference",
+                    models.CharField(
+                        max_length=50, unique=True, verbose_name="transaction reference"
+                    ),
+                ),
+                (
+                    "transaction_type",
+                    models.CharField(
+                        choices=[
+                            ("BUY", "Buy"),
+                            ("SELL", "Sell"),
+                            ("SEND", "Send"),
+                            ("RECEIVE", "Receive"),
+                            ("SWAP", "Swap"),
+                            ("CONVERT", "Convert"),
+                        ],
+                        max_length=10,
+                        verbose_name="transaction type",
+                    ),
+                ),
+                (
+                    "amount",
+                    models.DecimalField(
+                        decimal_places=8,
+                        max_digits=30,
+                        validators=[
+                            django.core.validators.MinValueValidator(Decimal("1E-8"))
+                        ],
+                        verbose_name="amount",
+                    ),
+                ),
+                (
+                    "price_per_unit",
+                    models.DecimalField(
+                        decimal_places=8,
+                        default=Decimal("0E-8"),
+                        max_digits=20,
+                        verbose_name="price per unit",
+                    ),
+                ),
+                (
+                    "total_value",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=Decimal("0.00"),
+                        max_digits=15,
+                        verbose_name="total value",
+                    ),
+                ),
+                (
+                    "to_address",
+                    models.CharField(
+                        blank=True, max_length=255, verbose_name="to address"
+                    ),
+                ),
+                (
+                    "from_address",
+                    models.CharField(
+                        blank=True, max_length=255, verbose_name="from address"
+                    ),
+                ),
+                (
+                    "blockchain_tx_hash",
+                    models.CharField(
+                        blank=True,
+                        max_length=255,
+                        verbose_name="blockchain transaction hash",
+                    ),
+                ),
+                (
+                    "confirmations",
+                    models.PositiveIntegerField(
+                        default=0, verbose_name="confirmations"
+                    ),
+                ),
+                (
+                    "required_confirmations",
+                    models.PositiveIntegerField(
+                        default=3, verbose_name="required confirmations"
+                    ),
+                ),
+                (
+                    "network_fee",
+                    models.DecimalField(
+                        decimal_places=8,
+                        default=Decimal("0E-8"),
+                        max_digits=15,
+                        verbose_name="network fee",
+                    ),
+                ),
+                (
+                    "service_fee",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=Decimal("0.00"),
+                        max_digits=15,
+                        verbose_name="service fee",
+                    ),
+                ),
+                (
+                    "status",
+                    models.CharField(
+                        choices=[
+                            ("PENDING", "Pending"),
+                            ("PROCESSING", "Processing"),
+                            ("COMPLETED", "Completed"),
+                            ("FAILED", "Failed"),
+                            ("CANCELLED", "Cancelled"),
+                        ],
+                        default="PENDING",
+                        max_length=20,
+                        verbose_name="status",
+                    ),
+                ),
+                (
+                    "ip_address",
+                    models.GenericIPAddressField(
+                        blank=True, null=True, verbose_name="IP address"
+                    ),
+                ),
+                ("user_agent", models.TextField(blank=True, verbose_name="user agent")),
+                ("notes", models.TextField(blank=True, verbose_name="notes")),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now_add=True, verbose_name="created at"),
+                ),
+                (
+                    "processed_at",
+                    models.DateTimeField(
+                        blank=True, null=True, verbose_name="processed at"
+                    ),
+                ),
+                (
+                    "completed_at",
+                    models.DateTimeField(
+                        blank=True, null=True, verbose_name="completed at"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="updated at"),
+                ),
+                (
+                    "cryptocurrency",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="transactions",
+                        to="crypto.cryptocurrency",
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="crypto_transactions",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                (
+                    "wallet",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="transactions",
+                        to="crypto.cryptowallet",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Crypto Transaction',
-                'verbose_name_plural': 'Crypto Transactions',
-                'db_table': 'crypto_transaction',
-                'ordering': ['-created_at'],
-                'indexes': [models.Index(fields=['reference'], name='crypto_tran_referen_75194c_idx'), models.Index(fields=['status'], name='crypto_tran_status_577742_idx'), models.Index(fields=['transaction_type'], name='crypto_tran_transac_b09e59_idx'), models.Index(fields=['user'], name='crypto_tran_user_id_76bbf7_idx'), models.Index(fields=['cryptocurrency'], name='crypto_tran_cryptoc_558f27_idx')],
+                "verbose_name": "Crypto Transaction",
+                "verbose_name_plural": "Crypto Transactions",
+                "db_table": "crypto_transaction",
+                "ordering": ["-created_at"],
+                "indexes": [
+                    models.Index(
+                        fields=["reference"], name="crypto_tran_referen_75194c_idx"
+                    ),
+                    models.Index(
+                        fields=["status"], name="crypto_tran_status_577742_idx"
+                    ),
+                    models.Index(
+                        fields=["transaction_type"],
+                        name="crypto_tran_transac_b09e59_idx",
+                    ),
+                    models.Index(
+                        fields=["user"], name="crypto_tran_user_id_76bbf7_idx"
+                    ),
+                    models.Index(
+                        fields=["cryptocurrency"], name="crypto_tran_cryptoc_558f27_idx"
+                    ),
+                ],
             },
         ),
         migrations.CreateModel(
-            name='CryptoWatchlist',
+            name="CryptoWatchlist",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('target_price', models.DecimalField(blank=True, decimal_places=8, max_digits=20, null=True, verbose_name='target price')),
-                ('alert_enabled', models.BooleanField(default=True, verbose_name='alert enabled')),
-                ('notes', models.TextField(blank=True, verbose_name='notes')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='created at')),
-                ('cryptocurrency', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='watchers', to='crypto.cryptocurrency')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='crypto_watchlist', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "target_price",
+                    models.DecimalField(
+                        blank=True,
+                        decimal_places=8,
+                        max_digits=20,
+                        null=True,
+                        verbose_name="target price",
+                    ),
+                ),
+                (
+                    "alert_enabled",
+                    models.BooleanField(default=True, verbose_name="alert enabled"),
+                ),
+                ("notes", models.TextField(blank=True, verbose_name="notes")),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now_add=True, verbose_name="created at"),
+                ),
+                (
+                    "cryptocurrency",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="watchers",
+                        to="crypto.cryptocurrency",
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="crypto_watchlist",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Crypto Watchlist',
-                'verbose_name_plural': 'Crypto Watchlists',
-                'db_table': 'crypto_watchlist',
-                'unique_together': {('user', 'cryptocurrency')},
+                "verbose_name": "Crypto Watchlist",
+                "verbose_name_plural": "Crypto Watchlists",
+                "db_table": "crypto_watchlist",
+                "unique_together": {("user", "cryptocurrency")},
             },
         ),
     ]

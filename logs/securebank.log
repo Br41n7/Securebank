@@ -1,0 +1,529 @@
+INFO 2025-10-25 15:33:42,638 autoreload 6602 2843792548 Watching for file changes with StatReloader
+ERROR 2025-10-25 15:34:20,227 basehttp 6602 2787375472 "GET /medical-records/document/upload/ HTTP/1.1" 500 59
+ERROR 2025-10-25 15:34:21,743 basehttp 6602 2787375472 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:34:30,691 basehttp 6602 2787375472 "GET / HTTP/1.1" 200 14157
+ERROR 2025-10-25 15:34:31,445 basehttp 6602 2787375472 "GET /static/js/main.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:34:31,626 basehttp 6602 2786339184 "GET /static/css/style.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:34:32,911 basehttp 6602 2786339184 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:35:20,396 basehttp 6602 2787375472 "GET / HTTP/1.1" 200 14157
+INFO 2025-10-25 15:35:34,450 basehttp 6602 2787375472 "GET /register/ HTTP/1.1" 200 20317
+ERROR 2025-10-25 15:35:35,378 basehttp 6602 2787375472 "GET /static/css/style.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:35:36,090 basehttp 6602 2786339184 "GET /static/js/main.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:35:56,295 basehttp 6602 2786339184 "GET /favicon.ico HTTP/1.1" 500 59
+ERROR 2025-10-25 15:39:13,917 basehttp 6602 2786339184 "POST /api/v1/auth/register/ HTTP/1.1" 500 59
+ERROR 2025-10-25 15:39:22,416 basehttp 6602 2786339184 "POST /api/v1/auth/register/ HTTP/1.1" 500 59
+INFO 2025-10-25 15:42:29,015 basehttp 6602 2787375472 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-10-25 15:42:29,432 basehttp 6602 2787375472 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4165
+ERROR 2025-10-25 15:42:30,010 basehttp 6602 2786339184 "GET /static/admin/css/responsive.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:42:30,028 basehttp 6602 2787375472 "GET /static/admin/css/base.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:42:30,030 basehttp 6602 2783443312 "GET /static/admin/css/login.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:42:30,811 basehttp 6602 2783443312 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:42:39,734 basehttp 6602 2787375472 "POST /admin/login/?next=/admin/ HTTP/1.1" 200 4328
+ERROR 2025-10-25 15:42:40,295 basehttp 6602 2787375472 "GET /static/admin/css/base.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:42:40,322 basehttp 6602 2783443312 "GET /static/admin/css/responsive.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:42:40,332 basehttp 6602 2786339184 "GET /static/admin/css/login.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:42:40,630 basehttp 6602 2786339184 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:43:08,185 basehttp 6602 2786339184 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2025-10-25 15:43:08,896 basehttp 6602 2786339184 "GET /admin/ HTTP/1.1" 200 30414
+ERROR 2025-10-25 15:43:09,422 basehttp 6602 2786339184 "GET /static/admin/css/base.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:43:09,465 basehttp 6602 2783443312 "GET /static/admin/css/responsive.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:43:10,035 basehttp 6602 2783443312 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:43:25,812 basehttp 6602 2787375472 "GET /admin/ HTTP/1.1" 200 30414
+ERROR 2025-10-25 15:43:26,400 basehttp 6602 2787375472 "GET /static/admin/css/base.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:43:26,430 basehttp 6602 2786339184 "GET /static/admin/css/responsive.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:43:26,876 basehttp 6602 2786339184 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:43:34,514 basehttp 6602 2786339184 "GET /admin/ HTTP/1.1" 200 30414
+ERROR 2025-10-25 15:43:34,977 basehttp 6602 2786339184 "GET /static/admin/css/base.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:43:34,980 basehttp 6602 2787375472 "GET /static/admin/css/responsive.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:43:35,775 basehttp 6602 2787375472 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:44:04,481 basehttp 6602 2787375472 "GET /admin/services/serviceprovider/add/ HTTP/1.1" 200 33064
+INFO 2025-10-25 15:44:05,072 basehttp 6602 2779273584 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-10-25 15:44:05,233 basehttp 6602 2787375472 "GET /static/admin/css/base.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:44:05,440 basehttp 6602 2783443312 "GET /static/admin/js/core.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:44:05,456 basehttp 6602 2781346160 "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:44:05,457 basehttp 6602 2780309872 "GET /static/admin/css/responsive.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:44:05,466 basehttp 6602 2786339184 "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:44:06,049 basehttp 6602 2786339184 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:44:28,867 basehttp 6602 2786339184 "GET /admin/ HTTP/1.1" 200 30414
+ERROR 2025-10-25 15:44:29,356 basehttp 6602 2786339184 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:44:33,662 basehttp 6602 2786339184 "GET /admin/sites/site/add/ HTTP/1.1" 200 26398
+INFO 2025-10-25 15:44:34,069 basehttp 6602 2780309872 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-10-25 15:44:34,403 basehttp 6602 2786339184 "GET /static/admin/css/base.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:44:34,528 basehttp 6602 2781346160 "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:44:34,549 basehttp 6602 2779273584 "GET /static/admin/css/responsive.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:44:34,568 basehttp 6602 2783443312 "GET /static/admin/js/core.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:44:34,570 basehttp 6602 2787375472 "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:44:34,948 basehttp 6602 2787375472 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:44:41,787 basehttp 6602 2787375472 "GET /admin/ HTTP/1.1" 200 30414
+ERROR 2025-10-25 15:44:42,322 basehttp 6602 2787375472 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:44:51,740 basehttp 6602 2787375472 "GET /admin/accounts/user/add/ HTTP/1.1" 200 29154
+INFO 2025-10-25 15:44:52,708 basehttp 6602 2783443312 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-10-25 15:44:53,308 basehttp 6602 2787375472 "GET /static/admin/css/base.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:44:53,359 basehttp 6602 2780309872 "GET /static/admin/css/responsive.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:44:53,385 basehttp 6602 2781346160 "GET /static/admin/js/core.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:44:53,387 basehttp 6602 2779273584 "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:44:53,400 basehttp 6602 2786339184 "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:44:53,939 basehttp 6602 2786339184 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:45:00,989 basehttp 6602 2786339184 "GET /admin/accounts/user/ HTTP/1.1" 200 30555
+INFO 2025-10-25 15:45:01,440 basehttp 6602 2781346160 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-10-25 15:45:01,576 basehttp 6602 2786339184 "GET /static/admin/css/base.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:45:02,105 basehttp 6602 2779273584 "GET /static/admin/css/changelists.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:45:02,115 basehttp 6602 2780309872 "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:45:02,120 basehttp 6602 2783443312 "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:45:02,170 basehttp 6602 2787375472 "GET /static/admin/js/core.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:45:02,193 basehttp 6602 2781346160 "GET /static/admin/css/responsive.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:45:02,208 basehttp 6602 2786339184 "GET /static/admin/img/icon-no.svg HTTP/1.1" 500 59
+ERROR 2025-10-25 15:45:02,591 basehttp 6602 2786339184 "GET /static/admin/js/filters.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:45:02,605 basehttp 6602 2781346160 "GET /static/admin/img/icon-no.svg HTTP/1.1" 500 59
+ERROR 2025-10-25 15:45:02,888 basehttp 6602 2781346160 "GET /favicon.ico HTTP/1.1" 500 59
+ERROR 2025-10-25 15:45:24,789 basehttp 6602 2781346160 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:45:31,277 basehttp 6602 2781346160 "GET / HTTP/1.1" 200 15865
+ERROR 2025-10-25 15:45:31,779 basehttp 6602 2786339184 "GET /static/js/main.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:45:31,782 basehttp 6602 2781346160 "GET /static/css/style.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:45:32,423 basehttp 6602 2781346160 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:45:38,462 basehttp 6602 2781346160 "GET /dashboard/ HTTP/1.1" 200 16988
+ERROR 2025-10-25 15:45:38,795 basehttp 6602 2781346160 "GET /static/css/style.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:45:38,809 basehttp 6602 2786339184 "GET /static/js/main.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:45:39,179 basehttp 6602 2786339184 "GET /favicon.ico HTTP/1.1" 500 59
+ERROR 2025-10-25 15:46:20,331 basehttp 6602 2786339184 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:47:33,859 basehttp 6602 2786339184 "GET / HTTP/1.1" 200 15865
+ERROR 2025-10-25 15:47:34,204 basehttp 6602 2786339184 "GET /static/css/style.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:47:34,207 basehttp 6602 2781346160 "GET /static/js/main.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:47:34,592 basehttp 6602 2781346160 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:47:43,443 basehttp 6602 2781346160 "GET /dashboard/ HTTP/1.1" 200 16988
+ERROR 2025-10-25 15:47:43,845 basehttp 6602 2781346160 "GET /static/css/style.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:47:43,883 basehttp 6602 2786339184 "GET /static/js/main.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:47:44,298 basehttp 6602 2786339184 "GET /favicon.ico HTTP/1.1" 500 59
+ERROR 2025-10-25 15:47:47,149 basehttp 6602 2786339184 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:48:05,058 basehttp 6602 2786339184 "GET /admin/ HTTP/1.1" 200 30414
+ERROR 2025-10-25 15:48:05,620 basehttp 6602 2786339184 "GET /static/admin/css/base.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:48:05,669 basehttp 6602 2781346160 "GET /static/admin/css/responsive.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:48:06,120 basehttp 6602 2781346160 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:48:22,677 basehttp 6602 2781346160 "GET /admin/services/billpayment/ HTTP/1.1" 200 27798
+INFO 2025-10-25 15:48:23,152 basehttp 6602 2787375472 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-10-25 15:48:23,308 basehttp 6602 2781346160 "GET /static/admin/css/base.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:48:23,836 basehttp 6602 2786339184 "GET /static/admin/css/changelists.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:48:23,848 basehttp 6602 2779273584 "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:48:23,857 basehttp 6602 2780309872 "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:48:23,870 basehttp 6602 2783443312 "GET /static/admin/js/core.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:48:23,881 basehttp 6602 2787375472 "GET /static/admin/css/responsive.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:48:24,065 basehttp 6602 2783443312 "GET /static/admin/js/filters.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:48:24,297 basehttp 6602 2783443312 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:48:35,947 basehttp 6602 2783443312 "GET /admin/services/billpayment/?bill_type__exact=TV_SUBSCRIPTION HTTP/1.1" 200 28445
+INFO 2025-10-25 15:48:36,380 basehttp 6602 2780309872 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-10-25 15:48:36,674 basehttp 6602 2783443312 "GET /static/admin/css/base.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:48:36,788 basehttp 6602 2786339184 "GET /static/admin/js/core.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:48:36,792 basehttp 6602 2787375472 "GET /static/admin/css/changelists.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:48:36,810 basehttp 6602 2781346160 "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:48:36,831 basehttp 6602 2779273584 "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:48:36,836 basehttp 6602 2780309872 "GET /static/admin/css/responsive.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:48:36,974 basehttp 6602 2779273584 "GET /static/admin/js/filters.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:48:37,386 basehttp 6602 2779273584 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:48:48,055 basehttp 6602 2779273584 "GET /admin/services/billpayment/ HTTP/1.1" 200 27798
+INFO 2025-10-25 15:48:49,083 basehttp 6602 2779273584 "GET /admin/ HTTP/1.1" 200 30414
+ERROR 2025-10-25 15:48:49,118 basehttp 6602 2780309872 "GET /favicon.ico HTTP/1.1" 500 59
+ERROR 2025-10-25 15:48:49,591 basehttp 6602 2780309872 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:48:53,187 basehttp 6602 2780309872 "GET /admin/payments/ HTTP/1.1" 200 8536
+ERROR 2025-10-25 15:48:53,598 basehttp 6602 2780309872 "GET /static/admin/css/base.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:48:53,620 basehttp 6602 2779273584 "GET /static/admin/css/responsive.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:48:53,844 basehttp 6602 2779273584 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:48:59,397 basehttp 6602 2779273584 "GET /admin/payments/paymentmethod/ HTTP/1.1" 200 27861
+INFO 2025-10-25 15:48:59,803 basehttp 6602 2781346160 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-10-25 15:49:00,237 basehttp 6602 2779273584 "GET /static/admin/css/base.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:49:00,390 basehttp 6602 2787375472 "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:49:00,420 basehttp 6602 2780309872 "GET /static/admin/css/changelists.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:49:00,450 basehttp 6602 2783443312 "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:49:00,463 basehttp 6602 2786339184 "GET /static/admin/js/core.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:49:00,472 basehttp 6602 2781346160 "GET /static/admin/css/responsive.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:49:00,665 basehttp 6602 2786339184 "GET /static/admin/js/filters.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:49:00,890 basehttp 6602 2786339184 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:49:08,024 basehttp 6602 2786339184 "GET /admin/payments/paymentmethod/?method_type__exact=CARD HTTP/1.1" 200 28433
+INFO 2025-10-25 15:49:08,456 basehttp 6602 2783443312 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-10-25 15:49:08,855 basehttp 6602 2786339184 "GET /static/admin/css/base.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:49:09,109 basehttp 6602 2781346160 "GET /static/admin/css/changelists.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:49:09,125 basehttp 6602 2780309872 "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:49:09,136 basehttp 6602 2787375472 "GET /static/admin/js/core.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:49:09,137 basehttp 6602 2779273584 "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:49:09,153 basehttp 6602 2783443312 "GET /static/admin/css/responsive.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:49:09,353 basehttp 6602 2779273584 "GET /static/admin/js/filters.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:49:09,554 basehttp 6602 2779273584 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:49:15,302 basehttp 6602 2779273584 "GET /admin/payments/paymentmethod/ HTTP/1.1" 200 27861
+ERROR 2025-10-25 15:49:15,835 basehttp 6602 2779273584 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:49:18,064 basehttp 6602 2779273584 "GET /admin/payments/ HTTP/1.1" 200 8536
+ERROR 2025-10-25 15:49:18,474 basehttp 6602 2779273584 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:49:21,087 basehttp 6602 2779273584 "GET /admin/ HTTP/1.1" 200 30414
+ERROR 2025-10-25 15:49:21,576 basehttp 6602 2779273584 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:49:25,074 basehttp 6602 2779273584 "GET /admin/crypto/cryptocurrency/ HTTP/1.1" 200 27575
+INFO 2025-10-25 15:49:25,501 basehttp 6602 2787375472 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-10-25 15:49:25,943 basehttp 6602 2779273584 "GET /static/admin/css/base.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:49:26,233 basehttp 6602 2780309872 "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:49:26,247 basehttp 6602 2786339184 "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:49:26,273 basehttp 6602 2783443312 "GET /static/admin/css/changelists.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:49:26,289 basehttp 6602 2787375472 "GET /static/admin/css/responsive.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:49:26,292 basehttp 6602 2781346160 "GET /static/admin/js/core.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:49:26,451 basehttp 6602 2781346160 "GET /static/admin/js/filters.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:49:26,676 basehttp 6602 2781346160 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:49:31,059 basehttp 6602 2781346160 "GET /admin/crypto/cryptocurrency/?crypto_type__exact=USDT HTTP/1.1" 200 28012
+INFO 2025-10-25 15:49:31,470 basehttp 6602 2783443312 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-10-25 15:49:31,976 basehttp 6602 2781346160 "GET /static/admin/css/base.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:49:32,087 basehttp 6602 2787375472 "GET /static/admin/css/changelists.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:49:32,102 basehttp 6602 2780309872 "GET /static/admin/js/core.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:49:32,112 basehttp 6602 2779273584 "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:49:32,116 basehttp 6602 2786339184 "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:49:32,141 basehttp 6602 2783443312 "GET /static/admin/css/responsive.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:49:32,322 basehttp 6602 2786339184 "GET /static/admin/js/filters.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:49:32,514 basehttp 6602 2786339184 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:49:36,942 basehttp 6602 2786339184 "GET /admin/crypto/cryptocurrency/ HTTP/1.1" 200 27575
+ERROR 2025-10-25 15:49:37,467 basehttp 6602 2786339184 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:49:38,299 basehttp 6602 2786339184 "GET /admin/ HTTP/1.1" 200 30414
+ERROR 2025-10-25 15:49:38,799 basehttp 6602 2786339184 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:49:46,155 basehttp 6602 2786339184 "GET / HTTP/1.1" 200 15865
+ERROR 2025-10-25 15:49:46,645 basehttp 6602 2786339184 "GET /static/css/style.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:49:46,651 basehttp 6602 2783443312 "GET /static/js/main.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:49:47,089 basehttp 6602 2783443312 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:50:32,733 autoreload 8752 3020690596 Watching for file changes with StatReloader
+INFO 2025-10-25 15:51:04,865 basehttp 8752 2964060528 "GET /dashboard/ HTTP/1.1" 200 16988
+ERROR 2025-10-25 15:51:05,878 basehttp 8752 2963024240 "GET /static/js/main.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:51:05,872 basehttp 8752 2964060528 "GET /static/css/style.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:51:06,457 basehttp 8752 2963024240 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:51:14,779 basehttp 8752 2963024240 "GET /dashboard/ HTTP/1.1" 200 16988
+ERROR 2025-10-25 15:51:15,168 basehttp 8752 2963024240 "GET /static/css/style.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:51:15,216 basehttp 8752 2964060528 "GET /static/js/main.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:51:15,590 basehttp 8752 2964060528 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:51:34,737 basehttp 8752 2964060528 "GET /dashboard/ HTTP/1.1" 200 16988
+ERROR 2025-10-25 15:51:35,060 basehttp 8752 2964060528 "GET /static/css/style.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:51:35,113 basehttp 8752 2963024240 "GET /static/js/main.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:51:35,552 basehttp 8752 2963024240 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:51:53,781 basehttp 8752 2963024240 "GET /admin/ HTTP/1.1" 200 30414
+ERROR 2025-10-25 15:51:54,232 basehttp 8752 2963024240 "GET /static/admin/css/base.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:51:54,268 basehttp 8752 2964060528 "GET /static/admin/css/responsive.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:51:54,604 basehttp 8752 2964060528 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:52:00,973 basehttp 8752 2964060528 "GET /admin/accounts/loginattempt/ HTTP/1.1" 200 26714
+INFO 2025-10-25 15:52:01,408 basehttp 8752 2959079792 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-10-25 15:52:01,813 basehttp 8752 2964060528 "GET /static/admin/css/base.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:52:01,874 basehttp 8752 2963024240 "GET /static/admin/css/changelists.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:52:01,910 basehttp 8752 2955970928 "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:52:01,917 basehttp 8752 2958043504 "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:52:01,946 basehttp 8752 2957007216 "GET /static/admin/js/core.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:52:01,962 basehttp 8752 2959079792 "GET /static/admin/css/responsive.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:52:02,112 basehttp 8752 2957007216 "GET /static/admin/js/filters.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:52:02,378 basehttp 8752 2957007216 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:52:08,514 basehttp 8752 2957007216 "GET /admin/accounts/loginattempt/?success__exact=1 HTTP/1.1" 200 26977
+INFO 2025-10-25 15:52:08,988 basehttp 8752 2958043504 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-10-25 15:52:09,209 basehttp 8752 2957007216 "GET /static/admin/css/base.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:52:09,790 basehttp 8752 2959079792 "GET /static/admin/css/changelists.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:52:09,826 basehttp 8752 2963024240 "GET /static/admin/js/core.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:52:09,833 basehttp 8752 2964060528 "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:52:09,849 basehttp 8752 2955970928 "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:52:09,854 basehttp 8752 2958043504 "GET /static/admin/css/responsive.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:52:10,104 basehttp 8752 2955970928 "GET /static/admin/js/filters.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:52:10,311 basehttp 8752 2955970928 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:52:13,082 basehttp 8752 2955970928 "GET /admin/accounts/loginattempt/ HTTP/1.1" 200 26714
+ERROR 2025-10-25 15:52:13,527 basehttp 8752 2955970928 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:52:14,942 basehttp 8752 2955970928 "GET /admin/ HTTP/1.1" 200 30414
+ERROR 2025-10-25 15:52:15,376 basehttp 8752 2955970928 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:52:33,238 basehttp 8752 2955970928 "GET /admin/payments/paymentmethod/ HTTP/1.1" 200 27861
+INFO 2025-10-25 15:52:33,668 basehttp 8752 2964060528 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-10-25 15:52:33,952 basehttp 8752 2955970928 "GET /static/admin/css/base.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:52:34,094 basehttp 8752 2963024240 "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:52:34,118 basehttp 8752 2957007216 "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:52:34,142 basehttp 8752 2958043504 "GET /static/admin/css/changelists.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:52:34,156 basehttp 8752 2964060528 "GET /static/admin/css/responsive.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:52:34,158 basehttp 8752 2959079792 "GET /static/admin/js/core.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:52:34,324 basehttp 8752 2959079792 "GET /static/admin/js/filters.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:52:34,599 basehttp 8752 2959079792 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:52:38,059 basehttp 8752 2959079792 "GET /admin/ HTTP/1.1" 200 30414
+ERROR 2025-10-25 15:52:38,520 basehttp 8752 2959079792 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:52:39,565 basehttp 8752 2959079792 "GET /admin/payments/ HTTP/1.1" 200 8536
+ERROR 2025-10-25 15:52:39,984 basehttp 8752 2959079792 "GET /static/admin/css/base.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:52:39,997 basehttp 8752 2964060528 "GET /static/admin/css/responsive.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:52:40,256 basehttp 8752 2964060528 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:52:43,878 basehttp 8752 2964060528 "GET /admin/payments/paymentmethod/add/ HTTP/1.1" 200 38581
+INFO 2025-10-25 15:52:44,332 basehttp 8752 2959079792 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-10-25 15:52:45,012 basehttp 8752 2964060528 "GET /static/admin/css/base.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:52:45,248 basehttp 8752 2955970928 "GET /static/admin/css/responsive.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:52:45,249 basehttp 8752 2957007216 "GET /static/admin/js/core.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:52:45,256 basehttp 8752 2958043504 "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:52:45,262 basehttp 8752 2963024240 "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:52:45,539 basehttp 8752 2963024240 "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 500 59
+ERROR 2025-10-25 15:52:45,794 basehttp 8752 2963024240 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:53:15,848 basehttp 8752 2963024240 "GET /admin/payments/ HTTP/1.1" 200 8536
+ERROR 2025-10-25 15:53:16,269 basehttp 8752 2963024240 "GET /static/admin/css/base.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:53:16,279 basehttp 8752 2958043504 "GET /static/admin/css/responsive.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:53:16,523 basehttp 8752 2958043504 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:53:18,996 basehttp 8752 2958043504 "GET /admin/payments/paymentnotification/add/ HTTP/1.1" 200 33722
+INFO 2025-10-25 15:53:19,434 basehttp 8752 2963024240 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-10-25 15:53:19,880 basehttp 8752 2958043504 "GET /static/admin/css/base.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:53:19,959 basehttp 8752 2957007216 "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:53:20,016 basehttp 8752 2964060528 "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:53:20,019 basehttp 8752 2955970928 "GET /static/admin/js/core.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:53:20,023 basehttp 8752 2959079792 "GET /static/admin/css/responsive.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:53:20,214 basehttp 8752 2959079792 "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 500 59
+ERROR 2025-10-25 15:53:20,482 basehttp 8752 2959079792 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:53:25,361 basehttp 8752 2959079792 "GET /admin/payments/ HTTP/1.1" 200 8536
+ERROR 2025-10-25 15:53:25,838 basehttp 8752 2959079792 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:53:27,957 basehttp 8752 2959079792 "GET /admin/payments/paymenttransaction/ HTTP/1.1" 200 28131
+INFO 2025-10-25 15:53:28,361 basehttp 8752 2964060528 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-10-25 15:53:28,719 basehttp 8752 2959079792 "GET /static/admin/css/base.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:53:28,920 basehttp 8752 2963024240 "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:53:28,939 basehttp 8752 2957007216 "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:53:28,942 basehttp 8752 2955970928 "GET /static/admin/css/changelists.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:53:28,976 basehttp 8752 2958043504 "GET /static/admin/js/core.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:53:28,990 basehttp 8752 2964060528 "GET /static/admin/css/responsive.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:53:29,185 basehttp 8752 2958043504 "GET /static/admin/js/filters.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:53:29,413 basehttp 8752 2958043504 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:53:32,491 basehttp 8752 2958043504 "GET /admin/payments/ HTTP/1.1" 200 8536
+ERROR 2025-10-25 15:53:32,828 basehttp 8752 2958043504 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:53:35,494 basehttp 8752 2958043504 "GET /admin/payments/paystackwebhook/ HTTP/1.1" 200 27933
+INFO 2025-10-25 15:53:35,901 basehttp 8752 2955970928 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-10-25 15:53:36,475 basehttp 8752 2958043504 "GET /static/admin/css/base.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:53:36,501 basehttp 8752 2963024240 "GET /static/admin/js/core.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:53:36,522 basehttp 8752 2959079792 "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:53:36,527 basehttp 8752 2957007216 "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:53:36,547 basehttp 8752 2964060528 "GET /static/admin/css/changelists.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:53:36,555 basehttp 8752 2955970928 "GET /static/admin/css/responsive.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:53:36,719 basehttp 8752 2964060528 "GET /static/admin/js/filters.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:53:36,947 basehttp 8752 2964060528 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:53:40,252 basehttp 8752 2964060528 "GET /admin/payments/ HTTP/1.1" 200 8536
+ERROR 2025-10-25 15:53:40,611 basehttp 8752 2964060528 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:53:42,618 basehttp 8752 2964060528 "GET /admin/payments/paymentmethod/add/ HTTP/1.1" 200 38581
+ERROR 2025-10-25 15:53:43,317 basehttp 8752 2964060528 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:53:44,337 basehttp 8752 2964060528 "GET /admin/payments/ HTTP/1.1" 200 8536
+ERROR 2025-10-25 15:53:44,664 basehttp 8752 2964060528 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:53:47,181 basehttp 8752 2964060528 "GET /admin/ HTTP/1.1" 200 30414
+ERROR 2025-10-25 15:53:47,665 basehttp 8752 2964060528 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:53:51,603 basehttp 8752 2964060528 "GET /admin/giftcards/giftcarddispute/ HTTP/1.1" 200 27597
+INFO 2025-10-25 15:53:52,044 basehttp 8752 2957007216 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-10-25 15:53:52,528 basehttp 8752 2964060528 "GET /static/admin/css/base.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:53:52,772 basehttp 8752 2955970928 "GET /static/admin/css/changelists.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:53:52,793 basehttp 8752 2959079792 "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:53:52,809 basehttp 8752 2963024240 "GET /static/admin/js/core.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:53:52,810 basehttp 8752 2958043504 "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:53:52,830 basehttp 8752 2957007216 "GET /static/admin/css/responsive.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:53:53,021 basehttp 8752 2958043504 "GET /static/admin/js/filters.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:53:53,716 basehttp 8752 2958043504 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:53:55,936 basehttp 8752 2958043504 "GET /admin/ HTTP/1.1" 200 30414
+ERROR 2025-10-25 15:53:56,348 basehttp 8752 2958043504 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:53:58,321 basehttp 8752 2958043504 "GET /admin/giftcards/ HTTP/1.1" 200 8667
+ERROR 2025-10-25 15:53:58,679 basehttp 8752 2958043504 "GET /static/admin/css/base.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:53:58,714 basehttp 8752 2957007216 "GET /static/admin/css/responsive.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:53:58,941 basehttp 8752 2957007216 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:54:02,232 basehttp 8752 2957007216 "GET /admin/giftcards/giftcarddispute/add/ HTTP/1.1" 200 36572
+ERROR 2025-10-25 15:54:03,226 basehttp 8752 2957007216 "GET /static/admin/css/base.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:54:03,304 basehttp 8752 2964060528 "GET /static/admin/css/responsive.css HTTP/1.1" 500 59
+ERROR 2025-10-25 15:54:03,309 basehttp 8752 2959079792 "GET /static/admin/js/core.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:54:03,314 basehttp 8752 2955970928 "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 500 59
+ERROR 2025-10-25 15:54:03,316 basehttp 8752 2963024240 "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 500 59
+INFO 2025-10-25 15:54:03,543 basehttp 8752 2958043504 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-10-25 15:54:04,041 basehttp 8752 2963024240 "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 500 59
+ERROR 2025-10-25 15:54:04,049 basehttp 8752 2958043504 "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 500 59
+ERROR 2025-10-25 15:54:04,281 basehttp 8752 2958043504 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:54:09,101 basehttp 8752 2958043504 "GET /admin/giftcards/ HTTP/1.1" 200 8667
+ERROR 2025-10-25 15:54:09,439 basehttp 8752 2958043504 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-25 15:54:11,022 basehttp 8752 2958043504 "GET /admin/ HTTP/1.1" 200 30414
+ERROR 2025-10-25 15:54:11,500 basehttp 8752 2958043504 "GET /favicon.ico HTTP/1.1" 500 59
+ERROR 2025-10-25 15:54:13,127 basehttp 8752 2958043504 "GET /favicon.ico HTTP/1.1" 500 59
+ERROR 2025-10-25 15:54:37,013 basehttp 8752 2958043504 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-28 10:41:38,719 autoreload 12244 2910336164 Watching for file changes with StatReloader
+INFO 2025-10-28 10:42:16,653 basehttp 12244 2848717168 "GET /dashboard/ HTTP/1.1" 200 15122
+ERROR 2025-10-28 10:42:21,857 basehttp 12244 2848717168 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-28 10:42:22,904 basehttp 12244 2848717168 "GET / HTTP/1.1" 200 14157
+ERROR 2025-10-28 10:42:24,040 basehttp 12244 2848717168 "GET /static/css/style.css HTTP/1.1" 500 59
+ERROR 2025-10-28 10:42:24,058 basehttp 12244 2846632304 "GET /static/js/main.js HTTP/1.1" 500 59
+ERROR 2025-10-28 10:42:25,854 basehttp 12244 2846632304 "GET /favicon.ico HTTP/1.1" 500 59
+INFO 2025-10-28 11:13:31,005 autoreload 15000 2874893476 Watching for file changes with StatReloader
+INFO 2025-10-28 11:13:48,452 basehttp 15000 2814900592 "GET / HTTP/1.1" 301 0
+INFO 2025-10-28 11:13:48,522 basehttp 15000 2814900592 code 400, message Bad request version ('\x1a\x1a\x13\x03\x13\x01\x13\x02Ì©Ì¨À+À/À,À0À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06S')
+ERROR 2025-10-28 11:13:48,526 basehttp 15000 2814900592 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-10-28 11:13:48,552 basehttp 15000 2814900592 code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x06À\x01\x00\x06¼\x03\x03¦y\x80')
+ERROR 2025-10-28 11:13:48,554 basehttp 15000 2814900592 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-10-28 11:13:54,062 basehttp 15000 2814900592 code 400, message Bad request version ('\x1a\x1a\x13\x03\x13\x01\x13\x02Ì©Ì¨À+À/À,À0À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x063úú\x00\x00\x00')
+ERROR 2025-10-28 11:13:54,082 basehttp 15000 2814900592 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-10-28 11:13:54,113 basehttp 15000 2814900592 code 400, message Bad request version ('FÂ\x19o·`\x04\x82FG5Á¬\x08§WCLÅëSO\x7fÿÚÌÙª¶e\x080\x00')
+ERROR 2025-10-28 11:13:54,115 basehttp 15000 2814900592 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-10-28 11:16:52,339 basehttp 15000 2814900592 code 400, message Bad request version ('\\Âêá2Y-i9\x01á\x92Øð\x018õºO')
+ERROR 2025-10-28 11:16:52,379 basehttp 15000 2814900592 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-10-28 11:16:52,472 basehttp 15000 2814900592 code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x037')
+ERROR 2025-10-28 11:16:52,502 basehttp 15000 2814900592 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-10-28 11:17:04,849 basehttp 15000 2814900592 code 400, message Bad request version ('+¥V\x05èx\x8dÝæ5')
+ERROR 2025-10-28 11:17:04,861 basehttp 15000 2814900592 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-10-28 11:17:04,886 basehttp 15000 2814900592 code 400, message Bad request version ('\x01\x87')
+ERROR 2025-10-28 11:17:04,888 basehttp 15000 2814900592 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-10-28 11:17:14,858 basehttp 15000 2814900592 code 400, message Bad request version ('\x00')
+ERROR 2025-10-28 11:17:14,877 basehttp 15000 2814900592 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-10-28 11:17:14,902 basehttp 15000 2814900592 code 400, message Bad request version ('\x02h2\x08http/1.1\x00')
+ERROR 2025-10-28 11:17:14,903 basehttp 15000 2814900592 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-10-28 11:19:44,757 autoreload 15000 2874893476 /data/data/com.termux/files/home/Securebank/securebank/settings.py changed, reloading.
+INFO 2025-10-28 11:19:52,230 autoreload 15284 2991903908 Watching for file changes with StatReloader
+INFO 2025-10-28 11:20:06,573 basehttp 15284 2932078960 code 400, message Bad request version ('¸\x08P\x87H·ò2rÚæP¯¡hQ')
+ERROR 2025-10-28 11:20:06,648 basehttp 15284 2932078960 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-10-28 11:20:06,767 basehttp 15284 2932078960 code 400, message Bad request version ('\x8b]¥"M\x88\x86Écm\x02¢j]Ê\x01\x9e÷E\x04\x00s\x11cÎOÕ2ìT?§¨(')
+ERROR 2025-10-28 11:20:06,841 basehttp 15284 2932078960 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-10-28 11:26:09,497 basehttp 15284 2932078960 code 400, message Bad request version ('ÏùÇo¬]è5f\x8ay3\x06A&¹d8UI_«\x9bª7£Z\x9e[vnì9\x9d\x88\x8a\x1a<U¾Ê+\x19\x99\x10¦ÀÏ\x98©?¢\x03QH')
+ERROR 2025-10-28 11:26:09,573 basehttp 15284 2932078960 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-10-28 11:26:09,641 basehttp 15284 2932078960 code 400, message Bad request version ('(6¤F®·r')
+ERROR 2025-10-28 11:26:09,643 basehttp 15284 2932078960 You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-10-28 11:26:51,822 log 15284 2932078960 Internal Server Error: /
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/django/template/loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: index.html
+ERROR 2025-10-28 11:26:51,874 basehttp 15284 2932078960 "GET / HTTP/1.1" 500 83746
+WARNING 2025-10-28 11:26:53,431 log 15284 2932078960 Not Found: /favicon.ico
+WARNING 2025-10-28 11:26:53,483 basehttp 15284 2932078960 "GET /favicon.ico HTTP/1.1" 404 3251
+INFO 2025-10-28 11:27:17,369 autoreload 15284 2991903908 /data/data/com.termux/files/home/Securebank/securebank/settings.py changed, reloading.
+INFO 2025-10-28 11:27:23,588 autoreload 16579 3018474660 Watching for file changes with StatReloader
+ERROR 2025-10-28 11:28:47,822 log 16579 2957769072 Internal Server Error: /
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/django/template/loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: index.html
+ERROR 2025-10-28 11:28:47,845 basehttp 16579 2957769072 "GET / HTTP/1.1" 500 83883
+INFO 2025-10-28 11:36:57,774 autoreload 16579 3018474660 /data/data/com.termux/files/home/Securebank/securebank/settings.py changed, reloading.
+INFO 2025-10-28 11:37:03,801 autoreload 17059 2886194340 Watching for file changes with StatReloader
+INFO 2025-10-28 11:37:13,752 basehttp 17059 2826434928 "GET / HTTP/1.1" 200 14157
+WARNING 2025-10-28 11:37:14,109 basehttp 17059 2826434928 "GET /static/css/style.css HTTP/1.1" 404 1966
+WARNING 2025-10-28 11:37:14,113 basehttp 17059 2824874352 "GET /static/js/main.js HTTP/1.1" 404 1957
+INFO 2025-10-28 11:37:31,021 basehttp 17059 2824874352 "GET /register/ HTTP/1.1" 200 20317
+WARNING 2025-10-28 11:37:31,292 basehttp 17059 2824874352 "GET /static/css/style.css HTTP/1.1" 404 1966
+WARNING 2025-10-28 11:37:31,311 basehttp 17059 2823838064 "GET /static/js/main.js HTTP/1.1" 404 1957
+WARNING 2025-10-28 11:39:02,407 log 17059 2824874352 Not Found: /api/v1/auth/register/
+WARNING 2025-10-28 11:39:02,427 basehttp 17059 2824874352 "POST /api/v1/auth/register/ HTTP/1.1" 404 3291
+WARNING 2025-10-28 11:39:08,749 log 17059 2824874352 Not Found: /api/v1/auth/register/
+WARNING 2025-10-28 11:39:08,762 basehttp 17059 2824874352 "POST /api/v1/auth/register/ HTTP/1.1" 404 3291
+WARNING 2025-10-28 11:39:20,154 log 17059 2824874352 Not Found: /api/v1/auth/register/
+WARNING 2025-10-28 11:39:20,185 basehttp 17059 2824874352 "POST /api/v1/auth/register/ HTTP/1.1" 404 3291
+INFO 2025-10-28 11:39:21,308 basehttp 17059 2824874352 "GET /login/ HTTP/1.1" 200 15507
+WARNING 2025-10-28 11:39:21,738 basehttp 17059 2824874352 "GET /static/css/style.css HTTP/1.1" 404 1966
+WARNING 2025-10-28 11:39:21,731 basehttp 17059 2823838064 "GET /static/js/main.js HTTP/1.1" 404 1957
+WARNING 2025-10-28 11:39:40,711 log 17059 2824874352 Not Found: /api/v1/auth/login/
+WARNING 2025-10-28 11:39:40,719 basehttp 17059 2824874352 "POST /api/v1/auth/login/ HTTP/1.1" 404 3279
+INFO 2025-10-28 11:42:50,432 autoreload 17227 2813334692 Watching for file changes with StatReloader
+INFO 2025-10-28 11:43:00,213 autoreload 17227 2813334692 /data/data/com.termux/files/home/Securebank/securebank/settings.py changed, reloading.
+INFO 2025-10-28 11:43:05,091 autoreload 17231 2984690852 Watching for file changes with StatReloader
+INFO 2025-10-28 11:43:41,654 basehttp 17231 2925525360 "GET /dashboard/ HTTP/1.1" 200 15122
+WARNING 2025-10-28 11:43:41,971 basehttp 17231 2925525360 "GET /static/css/style.css HTTP/1.1" 404 1966
+WARNING 2025-10-28 11:43:41,977 basehttp 17231 2923964784 "GET /static/js/main.js HTTP/1.1" 404 1957
+INFO 2025-10-28 11:45:08,216 basehttp 17231 2923964784 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-10-28 11:45:08,544 basehttp 17231 2923964784 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4178
+INFO 2025-10-28 11:45:08,818 basehttp 17231 2923964784 "GET /static/admin/css/base.css HTTP/1.1" 200 22120
+INFO 2025-10-28 11:45:08,855 basehttp 17231 2921892208 "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+INFO 2025-10-28 11:45:08,862 basehttp 17231 2922928496 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+INFO 2025-10-28 11:45:08,864 basehttp 17231 2920855920 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO 2025-10-28 11:45:08,875 basehttp 17231 2918783344 "GET /static/admin/css/login.css HTTP/1.1" 200 951
+INFO 2025-10-28 11:45:08,880 basehttp 17231 2919819632 "GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+INFO 2025-10-28 11:45:08,937 basehttp 17231 2919819632 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2025-10-28 11:45:19,433 basehttp 17231 2919819632 "POST /admin/login/?next=/admin/ HTTP/1.1" 200 4348
+INFO 2025-10-28 11:45:44,704 basehttp 17231 2919819632 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2025-10-28 11:45:45,348 basehttp 17231 2919819632 "GET /admin/ HTTP/1.1" 200 31260
+INFO 2025-10-28 11:45:45,505 basehttp 17231 2919819632 "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2025-10-28 11:45:45,698 basehttp 17231 2919819632 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2025-10-28 11:45:45,710 basehttp 17231 2918783344 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2025-10-28 11:46:09,077 basehttp 17231 2918783344 "GET /admin/services/airtimetopup/ HTTP/1.1" 200 28251
+INFO 2025-10-28 11:46:09,366 basehttp 17231 2919819632 "GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+INFO 2025-10-28 11:46:09,408 basehttp 17231 2922928496 "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2025-10-28 11:46:09,417 basehttp 17231 2919819632 "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+INFO 2025-10-28 11:46:09,421 basehttp 17231 2923964784 "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+INFO 2025-10-28 11:46:09,460 basehttp 17231 2922928496 "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+INFO 2025-10-28 11:46:09,474 basehttp 17231 2923964784 "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO 2025-10-28 11:46:09,483 basehttp 17231 2918783344 "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+INFO 2025-10-28 11:46:09,524 basehttp 17231 2919819632 "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2025-10-28 11:46:09,536 basehttp 17231 2921892208 "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+INFO 2025-10-28 11:46:09,538 basehttp 17231 2918783344 "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+INFO 2025-10-28 11:46:09,566 basehttp 17231 2920855920 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-10-28 11:46:09,606 basehttp 17231 2918783344 "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+INFO 2025-10-28 11:46:09,918 basehttp 17231 2918783344 "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+INFO 2025-10-28 11:46:09,926 basehttp 17231 2920855920 "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+INFO 2025-10-28 11:46:16,053 basehttp 17231 2920855920 "GET /admin/services/airtimetopup/add/ HTTP/1.1" 200 41794
+INFO 2025-10-28 11:46:16,269 basehttp 17231 2918783344 "GET /static/admin/css/forms.css HTTP/1.1" 200 8525
+INFO 2025-10-28 11:46:16,366 basehttp 17231 2920855920 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-10-28 11:46:16,376 basehttp 17231 2921892208 "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+INFO 2025-10-28 11:46:16,378 basehttp 17231 2918783344 "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+INFO 2025-10-28 11:46:16,385 basehttp 17231 2919819632 "GET /static/admin/js/calendar.js HTTP/1.1" 200 9141
+INFO 2025-10-28 11:46:16,419 basehttp 17231 2918783344 "GET /static/admin/css/widgets.css HTTP/1.1" 200 11973
+INFO 2025-10-28 11:46:16,430 basehttp 17231 2919819632 "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+INFO 2025-10-28 11:46:17,174 basehttp 17231 2918783344 "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+INFO 2025-10-28 11:46:17,185 basehttp 17231 2919819632 "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+INFO 2025-10-28 11:46:36,829 basehttp 17231 2918783344 "GET /admin/accounts/bankaccount/add/?_to_field=id&_popup=1 HTTP/1.1" 200 15155
+INFO 2025-10-28 11:46:36,963 basehttp 17231 2918783344 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-10-28 11:47:12,299 basehttp 17231 2918783344 "GET /admin/accounts/user/add/?_to_field=id&_popup=1 HTTP/1.1" 200 7650
+INFO 2025-10-28 11:47:12,395 basehttp 17231 2919819632 "GET /static/admin/css/unusable_password_field.css HTTP/1.1" 200 663
+INFO 2025-10-28 11:47:12,459 basehttp 17231 2919819632 "GET /static/admin/js/unusable_password_field.js HTTP/1.1" 200 1480
+INFO 2025-10-28 11:47:12,474 basehttp 17231 2918783344 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-10-28 11:47:37,521 basehttp 17231 2918783344 "POST /admin/accounts/bankaccount/add/?_to_field=id&_popup=1 HTTP/1.1" 200 378
+INFO 2025-10-28 11:47:37,671 basehttp 17231 2918783344 "GET /static/admin/js/popup_response.js HTTP/1.1" 200 532
+INFO 2025-10-28 11:47:50,990 basehttp 17231 2918783344 "GET /admin/ HTTP/1.1" 200 31702
+INFO 2025-10-28 11:47:58,148 basehttp 17231 2918783344 "GET /admin/accounts/bankaccount/add/ HTTP/1.1" 200 37582
+INFO 2025-10-28 11:47:58,328 basehttp 17231 2918783344 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-10-28 11:48:44,555 basehttp 17231 2918783344 "POST /admin/accounts/bankaccount/add/ HTTP/1.1" 302 0
+INFO 2025-10-28 11:48:45,081 basehttp 17231 2918783344 "GET /admin/accounts/bankaccount/ HTTP/1.1" 200 31716
+INFO 2025-10-28 11:48:45,364 basehttp 17231 2918783344 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-10-28 11:48:45,529 basehttp 17231 2918783344 "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+INFO 2025-10-28 11:48:53,579 basehttp 17231 2918783344 "GET / HTTP/1.1" 200 15865
+WARNING 2025-10-28 11:48:53,867 basehttp 17231 2918783344 "GET /static/css/style.css HTTP/1.1" 404 1966
+WARNING 2025-10-28 11:48:53,884 basehttp 17231 2919819632 "GET /static/js/main.js HTTP/1.1" 404 1957
+INFO 2025-10-28 11:48:56,089 basehttp 17231 2921892208 "GET /dashboard/ HTTP/1.1" 200 16988
+WARNING 2025-10-28 11:48:56,340 basehttp 17231 2921892208 "GET /static/css/style.css HTTP/1.1" 404 1966
+WARNING 2025-10-28 11:48:56,374 basehttp 17231 2920855920 "GET /static/js/main.js HTTP/1.1" 404 1957
+INFO 2025-10-28 11:48:59,373 basehttp 17231 2923964784 "GET /dashboard/ HTTP/1.1" 200 16988
+WARNING 2025-10-28 11:48:59,639 basehttp 17231 2923964784 "GET /static/css/style.css HTTP/1.1" 404 1966
+WARNING 2025-10-28 11:48:59,654 basehttp 17231 2922928496 "GET /static/js/main.js HTTP/1.1" 404 1957
+WARNING 2025-10-28 11:49:11,973 basehttp 17231 2923964784 "GET /static/css/style.css HTTP/1.1" 404 1966
+INFO 2025-10-28 11:49:13,577 basehttp 17231 2923964784 "GET /admin/accounts/bankaccount/ HTTP/1.1" 200 31459
+INFO 2025-10-28 11:49:22,822 basehttp 17231 2923964784 "GET /admin/ HTTP/1.1" 200 32105
+INFO 2025-10-28 11:49:27,273 basehttp 17231 2923964784 "GET /admin/accounts/securitysettings/ HTTP/1.1" 200 27871
+INFO 2025-10-28 11:49:27,431 basehttp 17231 2923964784 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-10-28 11:49:36,479 basehttp 17231 2923964784 "GET /admin/accounts/securitysettings/add/ HTTP/1.1" 200 34524
+INFO 2025-10-28 11:49:36,719 basehttp 17231 2923964784 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-10-28 11:49:45,090 basehttp 17231 2923964784 "GET /admin/accounts/securitysettings/ HTTP/1.1" 200 27871
+INFO 2025-10-28 11:49:47,510 basehttp 17231 2923964784 "GET /admin/ HTTP/1.1" 200 32105
+INFO 2025-10-28 11:49:53,851 basehttp 17231 2923964784 "GET /admin/accounts/user/ HTTP/1.1" 200 31558
+INFO 2025-10-28 11:49:54,082 basehttp 17231 2923964784 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-10-28 11:49:54,123 basehttp 17231 2923964784 "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+INFO 2025-10-28 11:49:57,713 basehttp 17231 2923964784 "GET /admin/ HTTP/1.1" 200 32105
+INFO 2025-10-28 11:50:00,737 basehttp 17231 2923964784 "GET /admin/accounts/userprofile/ HTTP/1.1" 200 27956
+INFO 2025-10-28 11:50:00,895 basehttp 17231 2923964784 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-10-28 11:50:06,834 basehttp 17231 2923964784 "GET /admin/accounts/userprofile/add/ HTTP/1.1" 200 40836
+INFO 2025-10-28 11:50:07,080 basehttp 17231 2923964784 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-10-28 11:51:26,718 basehttp 17231 2923964784 "POST /admin/accounts/userprofile/add/ HTTP/1.1" 302 0
+INFO 2025-10-28 11:51:27,235 basehttp 17231 2923964784 "GET /admin/accounts/userprofile/ HTTP/1.1" 200 30378
+INFO 2025-10-28 11:51:27,536 basehttp 17231 2923964784 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-10-28 11:51:34,606 basehttp 17231 2923964784 "GET / HTTP/1.1" 200 15865
+WARNING 2025-10-28 11:51:34,995 basehttp 17231 2923964784 "GET /static/css/style.css HTTP/1.1" 404 1966
+WARNING 2025-10-28 11:51:34,999 basehttp 17231 2919700848 "GET /static/js/main.js HTTP/1.1" 404 1957
+INFO 2025-10-28 11:51:36,625 basehttp 17231 2923964784 "GET /dashboard/ HTTP/1.1" 200 16988
+WARNING 2025-10-28 11:51:36,855 basehttp 17231 2923964784 "GET /static/css/style.css HTTP/1.1" 404 1966
+WARNING 2025-10-28 11:51:36,880 basehttp 17231 2919700848 "GET /static/js/main.js HTTP/1.1" 404 1957
+WARNING 2025-10-28 11:52:20,773 basehttp 17231 2923964784 "GET /static/css/style.css HTTP/1.1" 404 1966
+INFO 2025-10-28 11:52:22,835 basehttp 17231 2923964784 "GET /admin/accounts/userprofile/ HTTP/1.1" 200 30151
+INFO 2025-10-28 11:52:25,769 basehttp 17231 2923964784 "GET /admin/ HTTP/1.1" 200 32478

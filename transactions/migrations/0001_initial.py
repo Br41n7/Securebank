@@ -13,166 +13,638 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('accounts', '0001_initial'),
+        ("accounts", "0001_initial"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='ScheduledTransaction',
+            name="ScheduledTransaction",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
-                ('beneficiary_name', models.CharField(max_length=200, verbose_name='beneficiary name')),
-                ('beneficiary_account', models.CharField(max_length=50, verbose_name='beneficiary account')),
-                ('beneficiary_bank', models.CharField(max_length=200, verbose_name='beneficiary bank')),
-                ('amount', models.DecimalField(decimal_places=2, max_digits=15, verbose_name='amount')),
-                ('description', models.TextField(blank=True, verbose_name='description')),
-                ('frequency', models.CharField(choices=[('DAILY', 'Daily'), ('WEEKLY', 'Weekly'), ('MONTHLY', 'Monthly'), ('YEARLY', 'Yearly'), ('CUSTOM', 'Custom')], max_length=10, verbose_name='frequency')),
-                ('start_date', models.DateField(verbose_name='start date')),
-                ('end_date', models.DateField(blank=True, null=True, verbose_name='end date')),
-                ('next_execution', models.DateTimeField(verbose_name='next execution')),
-                ('execution_count', models.PositiveIntegerField(default=0, verbose_name='execution count')),
-                ('max_executions', models.PositiveIntegerField(blank=True, null=True, verbose_name='max executions')),
-                ('status', models.CharField(choices=[('ACTIVE', 'Active'), ('PAUSED', 'Paused'), ('COMPLETED', 'Completed'), ('CANCELLED', 'Cancelled')], default='ACTIVE', max_length=10, verbose_name='status')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='created at')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='updated at')),
-                ('source_account', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='scheduled_outgoing', to='accounts.bankaccount')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='scheduled_transactions', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                    ),
+                ),
+                (
+                    "beneficiary_name",
+                    models.CharField(max_length=200, verbose_name="beneficiary name"),
+                ),
+                (
+                    "beneficiary_account",
+                    models.CharField(max_length=50, verbose_name="beneficiary account"),
+                ),
+                (
+                    "beneficiary_bank",
+                    models.CharField(max_length=200, verbose_name="beneficiary bank"),
+                ),
+                (
+                    "amount",
+                    models.DecimalField(
+                        decimal_places=2, max_digits=15, verbose_name="amount"
+                    ),
+                ),
+                (
+                    "description",
+                    models.TextField(blank=True, verbose_name="description"),
+                ),
+                (
+                    "frequency",
+                    models.CharField(
+                        choices=[
+                            ("DAILY", "Daily"),
+                            ("WEEKLY", "Weekly"),
+                            ("MONTHLY", "Monthly"),
+                            ("YEARLY", "Yearly"),
+                            ("CUSTOM", "Custom"),
+                        ],
+                        max_length=10,
+                        verbose_name="frequency",
+                    ),
+                ),
+                ("start_date", models.DateField(verbose_name="start date")),
+                (
+                    "end_date",
+                    models.DateField(blank=True, null=True, verbose_name="end date"),
+                ),
+                ("next_execution", models.DateTimeField(verbose_name="next execution")),
+                (
+                    "execution_count",
+                    models.PositiveIntegerField(
+                        default=0, verbose_name="execution count"
+                    ),
+                ),
+                (
+                    "max_executions",
+                    models.PositiveIntegerField(
+                        blank=True, null=True, verbose_name="max executions"
+                    ),
+                ),
+                (
+                    "status",
+                    models.CharField(
+                        choices=[
+                            ("ACTIVE", "Active"),
+                            ("PAUSED", "Paused"),
+                            ("COMPLETED", "Completed"),
+                            ("CANCELLED", "Cancelled"),
+                        ],
+                        default="ACTIVE",
+                        max_length=10,
+                        verbose_name="status",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now_add=True, verbose_name="created at"),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="updated at"),
+                ),
+                (
+                    "source_account",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="scheduled_outgoing",
+                        to="accounts.bankaccount",
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="scheduled_transactions",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Scheduled Transaction',
-                'verbose_name_plural': 'Scheduled Transactions',
-                'db_table': 'transactions_scheduled_transaction',
-                'ordering': ['next_execution'],
+                "verbose_name": "Scheduled Transaction",
+                "verbose_name_plural": "Scheduled Transactions",
+                "db_table": "transactions_scheduled_transaction",
+                "ordering": ["next_execution"],
             },
         ),
         migrations.CreateModel(
-            name='Transaction',
+            name="Transaction",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
-                ('reference', models.CharField(max_length=50, unique=True, verbose_name='transaction reference')),
-                ('transaction_type', models.CharField(choices=[('TRANSFER', 'Bank Transfer'), ('DEPOSIT', 'Deposit'), ('WITHDRAWAL', 'Withdrawal'), ('PAYMENT', 'Bill Payment'), ('AIRTIME', 'Airtime Top-up'), ('CRYPTO_BUY', 'Crypto Purchase'), ('CRYPTO_SELL', 'Crypto Sale'), ('GIFTCARD_BUY', 'Gift Card Purchase'), ('GIFTCARD_SELL', 'Gift Card Sale'), ('SCHOOL_FEE', 'School Fee Payment'), ('ELECTRIC_BILL', 'Electric Bill Payment'), ('REFUND', 'Refund'), ('CHARGE', 'Service Charge')], max_length=20, verbose_name='transaction type')),
-                ('amount', models.DecimalField(decimal_places=2, max_digits=15, validators=[django.core.validators.MinValueValidator(Decimal('0.01'))], verbose_name='amount')),
-                ('currency', models.CharField(default='NGN', max_length=3, verbose_name='currency')),
-                ('description', models.TextField(blank=True, verbose_name='description')),
-                ('narration', models.TextField(blank=True, verbose_name='narration')),
-                ('recipient_name', models.CharField(blank=True, max_length=200, verbose_name='recipient name')),
-                ('recipient_account', models.CharField(blank=True, max_length=50, verbose_name='recipient account')),
-                ('recipient_bank', models.CharField(blank=True, max_length=200, verbose_name='recipient bank')),
-                ('status', models.CharField(choices=[('PENDING', 'Pending'), ('PROCESSING', 'Processing'), ('COMPLETED', 'Completed'), ('FAILED', 'Failed'), ('CANCELLED', 'Cancelled'), ('REVERSED', 'Reversed')], default='PENDING', max_length=20, verbose_name='status')),
-                ('priority', models.CharField(choices=[('LOW', 'Low'), ('NORMAL', 'Normal'), ('HIGH', 'High'), ('URGENT', 'Urgent')], default='NORMAL', max_length=10, verbose_name='priority')),
-                ('fee', models.DecimalField(decimal_places=2, default=Decimal('0.00'), max_digits=10, verbose_name='fee')),
-                ('tax', models.DecimalField(decimal_places=2, default=Decimal('0.00'), max_digits=10, verbose_name='tax')),
-                ('total_amount', models.DecimalField(decimal_places=2, max_digits=15, verbose_name='total amount')),
-                ('requires_otp', models.BooleanField(default=False, verbose_name='requires OTP')),
-                ('otp_verified', models.BooleanField(default=False, verbose_name='OTP verified')),
-                ('ip_address', models.GenericIPAddressField(blank=True, null=True, verbose_name='IP address')),
-                ('user_agent', models.TextField(blank=True, verbose_name='user agent')),
-                ('device_id', models.CharField(blank=True, max_length=100, verbose_name='device ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='created at')),
-                ('processed_at', models.DateTimeField(blank=True, null=True, verbose_name='processed at')),
-                ('completed_at', models.DateTimeField(blank=True, null=True, verbose_name='completed at')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='updated at')),
-                ('destination_account', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='incoming_transactions', to='accounts.bankaccount')),
-                ('source_account', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='outgoing_transactions', to='accounts.bankaccount')),
-                ('verified_by', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='verified_transactions', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                    ),
+                ),
+                (
+                    "reference",
+                    models.CharField(
+                        max_length=50, unique=True, verbose_name="transaction reference"
+                    ),
+                ),
+                (
+                    "transaction_type",
+                    models.CharField(
+                        choices=[
+                            ("TRANSFER", "Bank Transfer"),
+                            ("DEPOSIT", "Deposit"),
+                            ("WITHDRAWAL", "Withdrawal"),
+                            ("PAYMENT", "Bill Payment"),
+                            ("AIRTIME", "Airtime Top-up"),
+                            ("CRYPTO_BUY", "Crypto Purchase"),
+                            ("CRYPTO_SELL", "Crypto Sale"),
+                            ("GIFTCARD_BUY", "Gift Card Purchase"),
+                            ("GIFTCARD_SELL", "Gift Card Sale"),
+                            ("SCHOOL_FEE", "School Fee Payment"),
+                            ("ELECTRIC_BILL", "Electric Bill Payment"),
+                            ("REFUND", "Refund"),
+                            ("CHARGE", "Service Charge"),
+                        ],
+                        max_length=20,
+                        verbose_name="transaction type",
+                    ),
+                ),
+                (
+                    "amount",
+                    models.DecimalField(
+                        decimal_places=2,
+                        max_digits=15,
+                        validators=[
+                            django.core.validators.MinValueValidator(Decimal("0.01"))
+                        ],
+                        verbose_name="amount",
+                    ),
+                ),
+                (
+                    "currency",
+                    models.CharField(
+                        default="NGN", max_length=3, verbose_name="currency"
+                    ),
+                ),
+                (
+                    "description",
+                    models.TextField(blank=True, verbose_name="description"),
+                ),
+                ("narration", models.TextField(blank=True, verbose_name="narration")),
+                (
+                    "recipient_name",
+                    models.CharField(
+                        blank=True, max_length=200, verbose_name="recipient name"
+                    ),
+                ),
+                (
+                    "recipient_account",
+                    models.CharField(
+                        blank=True, max_length=50, verbose_name="recipient account"
+                    ),
+                ),
+                (
+                    "recipient_bank",
+                    models.CharField(
+                        blank=True, max_length=200, verbose_name="recipient bank"
+                    ),
+                ),
+                (
+                    "status",
+                    models.CharField(
+                        choices=[
+                            ("PENDING", "Pending"),
+                            ("PROCESSING", "Processing"),
+                            ("COMPLETED", "Completed"),
+                            ("FAILED", "Failed"),
+                            ("CANCELLED", "Cancelled"),
+                            ("REVERSED", "Reversed"),
+                        ],
+                        default="PENDING",
+                        max_length=20,
+                        verbose_name="status",
+                    ),
+                ),
+                (
+                    "priority",
+                    models.CharField(
+                        choices=[
+                            ("LOW", "Low"),
+                            ("NORMAL", "Normal"),
+                            ("HIGH", "High"),
+                            ("URGENT", "Urgent"),
+                        ],
+                        default="NORMAL",
+                        max_length=10,
+                        verbose_name="priority",
+                    ),
+                ),
+                (
+                    "fee",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=Decimal("0.00"),
+                        max_digits=10,
+                        verbose_name="fee",
+                    ),
+                ),
+                (
+                    "tax",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=Decimal("0.00"),
+                        max_digits=10,
+                        verbose_name="tax",
+                    ),
+                ),
+                (
+                    "total_amount",
+                    models.DecimalField(
+                        decimal_places=2, max_digits=15, verbose_name="total amount"
+                    ),
+                ),
+                (
+                    "requires_otp",
+                    models.BooleanField(default=False, verbose_name="requires OTP"),
+                ),
+                (
+                    "otp_verified",
+                    models.BooleanField(default=False, verbose_name="OTP verified"),
+                ),
+                (
+                    "ip_address",
+                    models.GenericIPAddressField(
+                        blank=True, null=True, verbose_name="IP address"
+                    ),
+                ),
+                ("user_agent", models.TextField(blank=True, verbose_name="user agent")),
+                (
+                    "device_id",
+                    models.CharField(
+                        blank=True, max_length=100, verbose_name="device ID"
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now_add=True, verbose_name="created at"),
+                ),
+                (
+                    "processed_at",
+                    models.DateTimeField(
+                        blank=True, null=True, verbose_name="processed at"
+                    ),
+                ),
+                (
+                    "completed_at",
+                    models.DateTimeField(
+                        blank=True, null=True, verbose_name="completed at"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="updated at"),
+                ),
+                (
+                    "destination_account",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="incoming_transactions",
+                        to="accounts.bankaccount",
+                    ),
+                ),
+                (
+                    "source_account",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="outgoing_transactions",
+                        to="accounts.bankaccount",
+                    ),
+                ),
+                (
+                    "verified_by",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        related_name="verified_transactions",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Transaction',
-                'verbose_name_plural': 'Transactions',
-                'db_table': 'transactions_transaction',
-                'ordering': ['-created_at'],
+                "verbose_name": "Transaction",
+                "verbose_name_plural": "Transactions",
+                "db_table": "transactions_transaction",
+                "ordering": ["-created_at"],
             },
         ),
         migrations.CreateModel(
-            name='TransactionLimit',
+            name="TransactionLimit",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('tier', models.CharField(choices=[('BASIC', 'Basic'), ('STANDARD', 'Standard'), ('PREMIUM', 'Premium'), ('BUSINESS', 'Business')], default='BASIC', max_length=10, verbose_name='tier')),
-                ('daily_transfer_limit', models.DecimalField(decimal_places=2, default=Decimal('100000.00'), max_digits=15, verbose_name='daily transfer limit')),
-                ('daily_withdrawal_limit', models.DecimalField(decimal_places=2, default=Decimal('50000.00'), max_digits=15, verbose_name='daily withdrawal limit')),
-                ('daily_crypto_limit', models.DecimalField(decimal_places=2, default=Decimal('200000.00'), max_digits=15, verbose_name='daily crypto limit')),
-                ('single_transfer_limit', models.DecimalField(decimal_places=2, default=Decimal('50000.00'), max_digits=15, verbose_name='single transfer limit')),
-                ('single_withdrawal_limit', models.DecimalField(decimal_places=2, default=Decimal('20000.00'), max_digits=15, verbose_name='single withdrawal limit')),
-                ('single_crypto_limit', models.DecimalField(decimal_places=2, default=Decimal('100000.00'), max_digits=15, verbose_name='single crypto limit')),
-                ('monthly_transfer_limit', models.DecimalField(decimal_places=2, default=Decimal('2000000.00'), max_digits=15, verbose_name='monthly transfer limit')),
-                ('monthly_withdrawal_limit', models.DecimalField(decimal_places=2, default=Decimal('1000000.00'), max_digits=15, verbose_name='monthly withdrawal limit')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='created at')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='updated at')),
-                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='transaction_limits', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "tier",
+                    models.CharField(
+                        choices=[
+                            ("BASIC", "Basic"),
+                            ("STANDARD", "Standard"),
+                            ("PREMIUM", "Premium"),
+                            ("BUSINESS", "Business"),
+                        ],
+                        default="BASIC",
+                        max_length=10,
+                        verbose_name="tier",
+                    ),
+                ),
+                (
+                    "daily_transfer_limit",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=Decimal("100000.00"),
+                        max_digits=15,
+                        verbose_name="daily transfer limit",
+                    ),
+                ),
+                (
+                    "daily_withdrawal_limit",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=Decimal("50000.00"),
+                        max_digits=15,
+                        verbose_name="daily withdrawal limit",
+                    ),
+                ),
+                (
+                    "daily_crypto_limit",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=Decimal("200000.00"),
+                        max_digits=15,
+                        verbose_name="daily crypto limit",
+                    ),
+                ),
+                (
+                    "single_transfer_limit",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=Decimal("50000.00"),
+                        max_digits=15,
+                        verbose_name="single transfer limit",
+                    ),
+                ),
+                (
+                    "single_withdrawal_limit",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=Decimal("20000.00"),
+                        max_digits=15,
+                        verbose_name="single withdrawal limit",
+                    ),
+                ),
+                (
+                    "single_crypto_limit",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=Decimal("100000.00"),
+                        max_digits=15,
+                        verbose_name="single crypto limit",
+                    ),
+                ),
+                (
+                    "monthly_transfer_limit",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=Decimal("2000000.00"),
+                        max_digits=15,
+                        verbose_name="monthly transfer limit",
+                    ),
+                ),
+                (
+                    "monthly_withdrawal_limit",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=Decimal("1000000.00"),
+                        max_digits=15,
+                        verbose_name="monthly withdrawal limit",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now_add=True, verbose_name="created at"),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="updated at"),
+                ),
+                (
+                    "user",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="transaction_limits",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Transaction Limit',
-                'verbose_name_plural': 'Transaction Limits',
-                'db_table': 'transactions_transaction_limit',
+                "verbose_name": "Transaction Limit",
+                "verbose_name_plural": "Transaction Limits",
+                "db_table": "transactions_transaction_limit",
             },
         ),
         migrations.CreateModel(
-            name='TransactionLog',
+            name="TransactionLog",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('action', models.CharField(choices=[('CREATED', 'Created'), ('UPDATED', 'Updated'), ('CANCELLED', 'Cancelled'), ('COMPLETED', 'Completed'), ('FAILED', 'Failed'), ('REVERSED', 'Reversed'), ('OTP_REQUESTED', 'OTP Requested'), ('OTP_VERIFIED', 'OTP Verified')], max_length=20, verbose_name='action')),
-                ('old_status', models.CharField(blank=True, max_length=20, verbose_name='old status')),
-                ('new_status', models.CharField(blank=True, max_length=20, verbose_name='new status')),
-                ('details', models.TextField(blank=True, verbose_name='details')),
-                ('ip_address', models.GenericIPAddressField(blank=True, null=True, verbose_name='IP address')),
-                ('user_agent', models.TextField(blank=True, verbose_name='user agent')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='created at')),
-                ('transaction', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='logs', to='transactions.transaction')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "action",
+                    models.CharField(
+                        choices=[
+                            ("CREATED", "Created"),
+                            ("UPDATED", "Updated"),
+                            ("CANCELLED", "Cancelled"),
+                            ("COMPLETED", "Completed"),
+                            ("FAILED", "Failed"),
+                            ("REVERSED", "Reversed"),
+                            ("OTP_REQUESTED", "OTP Requested"),
+                            ("OTP_VERIFIED", "OTP Verified"),
+                        ],
+                        max_length=20,
+                        verbose_name="action",
+                    ),
+                ),
+                (
+                    "old_status",
+                    models.CharField(
+                        blank=True, max_length=20, verbose_name="old status"
+                    ),
+                ),
+                (
+                    "new_status",
+                    models.CharField(
+                        blank=True, max_length=20, verbose_name="new status"
+                    ),
+                ),
+                ("details", models.TextField(blank=True, verbose_name="details")),
+                (
+                    "ip_address",
+                    models.GenericIPAddressField(
+                        blank=True, null=True, verbose_name="IP address"
+                    ),
+                ),
+                ("user_agent", models.TextField(blank=True, verbose_name="user agent")),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now_add=True, verbose_name="created at"),
+                ),
+                (
+                    "transaction",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="logs",
+                        to="transactions.transaction",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Transaction Log',
-                'verbose_name_plural': 'Transaction Logs',
-                'db_table': 'transactions_transaction_log',
-                'ordering': ['-created_at'],
+                "verbose_name": "Transaction Log",
+                "verbose_name_plural": "Transaction Logs",
+                "db_table": "transactions_transaction_log",
+                "ordering": ["-created_at"],
             },
         ),
         migrations.CreateModel(
-            name='Beneficiary',
+            name="Beneficiary",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
-                ('name', models.CharField(max_length=200, verbose_name='beneficiary name')),
-                ('account_number', models.CharField(max_length=50, verbose_name='account number')),
-                ('bank_name', models.CharField(max_length=200, verbose_name='bank name')),
-                ('beneficiary_type', models.CharField(choices=[('INTERNAL', 'Internal Transfer'), ('EXTERNAL', 'External Transfer')], max_length=10, verbose_name='beneficiary type')),
-                ('nickname', models.CharField(blank=True, max_length=100, verbose_name='nickname')),
-                ('is_favorite', models.BooleanField(default=False, verbose_name='favorite')),
-                ('last_used', models.DateTimeField(blank=True, null=True, verbose_name='last used')),
-                ('usage_count', models.PositiveIntegerField(default=0, verbose_name='usage count')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='created at')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='updated at')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='beneficiaries', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(max_length=200, verbose_name="beneficiary name"),
+                ),
+                (
+                    "account_number",
+                    models.CharField(max_length=50, verbose_name="account number"),
+                ),
+                (
+                    "bank_name",
+                    models.CharField(max_length=200, verbose_name="bank name"),
+                ),
+                (
+                    "beneficiary_type",
+                    models.CharField(
+                        choices=[
+                            ("INTERNAL", "Internal Transfer"),
+                            ("EXTERNAL", "External Transfer"),
+                        ],
+                        max_length=10,
+                        verbose_name="beneficiary type",
+                    ),
+                ),
+                (
+                    "nickname",
+                    models.CharField(
+                        blank=True, max_length=100, verbose_name="nickname"
+                    ),
+                ),
+                (
+                    "is_favorite",
+                    models.BooleanField(default=False, verbose_name="favorite"),
+                ),
+                (
+                    "last_used",
+                    models.DateTimeField(
+                        blank=True, null=True, verbose_name="last used"
+                    ),
+                ),
+                (
+                    "usage_count",
+                    models.PositiveIntegerField(default=0, verbose_name="usage count"),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now_add=True, verbose_name="created at"),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="updated at"),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="beneficiaries",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Beneficiary',
-                'verbose_name_plural': 'Beneficiaries',
-                'db_table': 'transactions_beneficiary',
-                'ordering': ['-is_favorite', 'name'],
-                'unique_together': {('user', 'account_number', 'bank_name')},
+                "verbose_name": "Beneficiary",
+                "verbose_name_plural": "Beneficiaries",
+                "db_table": "transactions_beneficiary",
+                "ordering": ["-is_favorite", "name"],
+                "unique_together": {("user", "account_number", "bank_name")},
             },
         ),
         migrations.AddIndex(
-            model_name='transaction',
-            index=models.Index(fields=['reference'], name='transaction_referen_923a88_idx'),
+            model_name="transaction",
+            index=models.Index(
+                fields=["reference"], name="transaction_referen_923a88_idx"
+            ),
         ),
         migrations.AddIndex(
-            model_name='transaction',
-            index=models.Index(fields=['status'], name='transaction_status_71abbb_idx'),
+            model_name="transaction",
+            index=models.Index(fields=["status"], name="transaction_status_71abbb_idx"),
         ),
         migrations.AddIndex(
-            model_name='transaction',
-            index=models.Index(fields=['transaction_type'], name='transaction_transac_09d7ec_idx'),
+            model_name="transaction",
+            index=models.Index(
+                fields=["transaction_type"], name="transaction_transac_09d7ec_idx"
+            ),
         ),
         migrations.AddIndex(
-            model_name='transaction',
-            index=models.Index(fields=['created_at'], name='transaction_created_67ce7b_idx'),
+            model_name="transaction",
+            index=models.Index(
+                fields=["created_at"], name="transaction_created_67ce7b_idx"
+            ),
         ),
         migrations.AddIndex(
-            model_name='transaction',
-            index=models.Index(fields=['source_account'], name='transaction_source__e0cf02_idx'),
+            model_name="transaction",
+            index=models.Index(
+                fields=["source_account"], name="transaction_source__e0cf02_idx"
+            ),
         ),
         migrations.AddIndex(
-            model_name='transaction',
-            index=models.Index(fields=['destination_account'], name='transaction_destina_2160b5_idx'),
+            model_name="transaction",
+            index=models.Index(
+                fields=["destination_account"], name="transaction_destina_2160b5_idx"
+            ),
         ),
     ]
